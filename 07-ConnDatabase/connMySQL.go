@@ -32,6 +32,16 @@ func CreateTable(db *sql.DB) error {
 	return nil
 }
 
+func InsertUser(DB *sql.DB, username, password string) error {
+	_, err := DB.Exec("insert INTO users(username,password) values(?,?)", username, password)
+	if err != nil {
+		fmt.Printf("建立使用者失敗，原因是：%v", err)
+		return err
+	}
+	fmt.Println("建立使用者成功！")
+	return nil
+}
+
 func main() {
 	conn := fmt.Sprintf("%s:%s@%s(%s:%d)/%s", USERNAME, PASSWORD, NETWORK, SERVER, PORT, DATABASE)
 	fmt.Println(conn)
@@ -45,5 +55,6 @@ func main() {
 		return
 	}
 	defer db.Close()
-	CreateTable(db)
+	//CreateTable(db)
+	InsertUser(db, "test", "test")
 }
