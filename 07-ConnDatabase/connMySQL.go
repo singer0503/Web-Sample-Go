@@ -55,6 +55,6 @@ func main() {
 		return
 	}
 	defer db.Close()
-	//CreateTable(db)
-	InsertUser(db, "test", "test")
+	//CreateTable(db) // 建立資料表
+	InsertUser(db, "test", "test") // 新增資料
 }
