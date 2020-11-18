@@ -18,8 +18,22 @@ const (
 	DATABASE = "demo"
 )
 
+func CreateTable(db *sql.DB) error {
+	sql := `CREATE TABLE IF NOT EXISTS users (
+		id INT(4) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+		username VARCHAR(64),
+		password VARCHAR(64)
+	);`
+	if _, err := db.Exec(sql); err != nil {
+		fmt.Println("建立 Table 發生錯誤", err)
+		return err
+	}
+	return nil
+}
+
 func main() {
 	conn := fmt.Sprintf("%s:%s@%s(%s:%d)/%s", USERNAME, PASSWORD, NETWORK, SERVER, PORT, DATABASE)
+	fmt.Println(conn)
 	db, err := sql.Open("mysql", conn)
 	if err != nil {
 		fmt.Println("開啟 MySQL 連線發生錯誤，原因為：", err)
@@ -30,4 +44,5 @@ func main() {
 		return
 	}
 	defer db.Close()
+	CreateTable(db)
 }
