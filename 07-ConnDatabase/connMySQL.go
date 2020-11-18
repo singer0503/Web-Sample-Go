@@ -28,6 +28,7 @@ func CreateTable(db *sql.DB) error {
 		fmt.Println("建立 Table 發生錯誤", err)
 		return err
 	}
+	fmt.Println("建立 Table 成功！")
 	return nil
 }
 
