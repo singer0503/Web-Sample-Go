@@ -42,6 +42,23 @@ func InsertUser(DB *sql.DB, username, password string) error {
 	return nil
 }
 
+type User struct {
+	ID       string
+	Username string
+	Password string
+}
+
+func QueryUser(db *sql.DB, username string) {
+	user := new(User)
+	row := db.QueryRow("select * from users where username = ?", username)
+	if err := row.Scan(&user.ID, &user.Username, &user.Password); err != nil {
+		fmt.Printf("映射使用者失敗，原因為：%v\n", err)
+		return
+	}
+	fmt.Println("查詢使用者成功", *user)
+
+}
+
 func main() {
 	conn := fmt.Sprintf("%s:%s@%s(%s:%d)/%s", USERNAME, PASSWORD, NETWORK, SERVER, PORT, DATABASE)
 	fmt.Println(conn)
@@ -56,5 +73,6 @@ func main() {
 	}
 	defer db.Close()
 	//CreateTable(db) // 建立資料表
-	InsertUser(db, "test", "test") // 新增資料
+	//InsertUser(db, "test", "test") // 新增資料
+	QueryUser(db, "test") // 查詢資料
 }
