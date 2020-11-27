@@ -20,6 +20,7 @@ func test(c *gin.Context) {
 	data.Content = "我的第一個首頁"
 	c.HTML(http.StatusOK, "index.html", data)
 }
+
 func main() {
 	server := gin.Default()           // 建立 gin 的 instance，可以把這個 instance 想像成是 server 的實例
 	server.LoadHTMLGlob("template/*") // 這邊要先跟 gin 註冊好 template 的位置，好讓他去找
