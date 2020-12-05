@@ -1,0 +1,15 @@
+{"level":"info","msg":"[Server Mode = debug]","time":"2020-12-05T12:27:29+08:00"}
+{"level":"error","msg":"[connect to database error Error 1045: Access denied for user 'sample'@'localhost' (using password: YES)]","time":"2020-12-05T12:27:29+08:00"}
+{"level":"info","msg":"[Server Mode = debug]","time":"2020-12-05T12:28:21+08:00"}
+{"level":"error","msg":"[connect to database error Error 1049: Unknown database 'sample']","time":"2020-12-05T12:28:21+08:00"}
+{"level":"info","msg":"[Server Mode = debug]","time":"2020-12-05T12:29:00+08:00"}
+{"level":"info","msg":"[API Gateway Start Running]","time":"2020-12-05T12:29:00+08:00"}
+{"level":"info","msg":"[Server Mode = debug]","time":"2020-12-05T12:38:33+08:00"}
+{"level":"info","msg":"[API Gateway Start Running]","time":"2020-12-05T12:38:33+08:00"}
+{"level":"info","msg":"[Server Mode = debug]","time":"2020-12-05T12:57:01+08:00"}
+{"level":"info","msg":"[API Gateway Start Running]","time":"2020-12-05T12:57:02+08:00"}
+{"clientIP":"::1","dataLength":0,"hostname":"323-Maxhuang","latency":1,"level":"warning","method":"GET","msg":"::1 - 323-Maxhuang [2020/38/56:12:57:38 +0800] \"GET /\" 404 0 \"\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36\" (1ms)","path":"/","referer":"","statusCode":404,"time":"2020-12-05T12:57:38+08:00","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36"}
+{"clientIP":"::1","dataLength":318,"hostname":"323-Maxhuang","latency":4,"level":"info","method":"GET","msg":"::1 - 323-Maxhuang [2020/42/56:12:57:42 +0800] \"GET /api/v1/user\" 200 318 \"\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36\" (4ms)","path":"/api/v1/user","referer":"","statusCode":200,"time":"2020-12-05T12:57:42+08:00","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36"}
+{"clientIP":"::1","dataLength":0,"hostname":"323-Maxhuang","latency":1,"level":"warning","method":"GET","msg":"::1 - 323-Maxhuang [2020/43/56:12:57:43 +0800] \"GET /favicon.ico\" 404 0 \"http://localhost:8888/api/v1/user\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36\" (1ms)","path":"/favicon.ico","referer":"http://localhost:8888/api/v1/user","statusCode":404,"time":"2020-12-05T12:57:43+08:00","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36"}
+{"level":"info","msg":"[Server Mode = debug]","time":"2020-12-05T13:00:13+08:00"}
+{"level":"info","msg":"[API Gateway Start Running]","time":"2020-12-05T13:00:13+08:00"}

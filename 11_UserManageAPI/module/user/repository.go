@@ -1,13 +1,12 @@
 package user
 
-import (
-	"11-UserManageAPI/model"
-)
+import "sample_api/model"
 
-type Respository interface {
+type Repository interface {
 	GetUserList(map[string]interface{}) ([]*model.User, error)
 	GetUser(in *model.User) (*model.User, error)
 	CreateUser(in *model.User) (*model.User, error)
-	ModifyUser(in *model.User, data map[string]interface{}) (*model.User, error)
+	UpdateUser(in *model.User) (*model.User, error)
+	ModifyUser(in *model.User, column map[string]interface{}) (*model.User, error)
 	DeleteUser(in *model.User) error
 }
