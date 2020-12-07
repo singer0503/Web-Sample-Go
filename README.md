@@ -46,12 +46,16 @@ go mod init web-sample-go
 執行之後可以看到會出現一個 go.mod 檔案
 
 假設現在我要引入GitHub上的gin-gonic/gin的套件，如下定義：
+
+```go
 module modtest
- ​
- go 1.13
- ​
- require github.com/gin-gonic/gin v1.5.0
+
+go 1.13
+
+require github.com/gin-gonic/gin v1.5.0
+```
 
 再執行以下指令：
-go mod download
+`go mod download`
+
 會將需要的套件安裝在 GOPATH/pkg/mod 資料夾裡面。而且會發現出現一個 go.sum 的檔案，這個檔案基本上用來記錄套件版本的關係，確保是正確的，是不太需要理會的。
