@@ -6,6 +6,11 @@
 - 05 使用第三方 Framework（Gin）
 - 06 使用 Gin 開發登入畫面
 - 07 連接 MySQL 練習
+- 08 連接 MySQL 並使用 gorm 
+- 09 env 練習
+- 10 i18n 練習
+- 11 使用者管理 Web api 開發練習，並實作乾淨的架構
+- 12 WebSocket
 
 傳統需要去設定 GOPATH
 ```go
