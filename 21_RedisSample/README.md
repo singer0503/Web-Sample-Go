@@ -20,3 +20,5 @@ Redis 的啟動也可以使用 brew 指令進行
 
 `redis-cli --raw`
 就可以避免中文乱码了。
+
+`config set requirepass "admin"`
