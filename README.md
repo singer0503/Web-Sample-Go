@@ -17,7 +17,7 @@
 GOPATH="/Users/Apple/Documents/Go/web-sample-go"
 ```
 # 但是自從 Go Modules 的誕生
-首先要先設定GO111MODULE環境變數，總共可以三種不同的值：
+首先要先設定 GO111MODULE 環境變數，總共可以三種不同的值：
 
 `auto`
 默認值，go命令會根據當前目錄来决定是否啟用modules功能。需要滿足兩種情形：
