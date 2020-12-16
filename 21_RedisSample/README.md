@@ -9,6 +9,9 @@
 Redis 的啟動也可以使用 brew 指令進行
 `brew services start redis`
 
+進入 Redis
+`redis-cli`
+
 測試
 可以透過 ping 的方式測試看看 redis-server 是否存活
 
