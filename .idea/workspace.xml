@@ -20,12 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7b67174d-3291-45b1-a99b-283472ebae68" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/100_ginJWT/go.mod" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/100_ginJWT/go.sum" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/100_ginJWT/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/11_UserManageAPI/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/11_UserManageAPI/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/18_WebSocket/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/18_WebSocket/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/22_WebSocket+Redis一對一聊天室/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/22_WebSocket+Redis一對一聊天室/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/22_WebSocket+Redis一對一聊天室/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/22_WebSocket+Redis一對一聊天室/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/23_UniTest/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/23_UniTest/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -55,7 +53,16 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="terminal" />
   </component>
-  <component name="RunManager" selected="Go Build.go build ginJWT">
+  <component name="RunManager" selected="Go Build.go build WebSocketRedisSample">
+    <configuration name="go build WebSocketRedisSample" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="web-sample-go" />
+      <working_directory value="$PROJECT_DIR$/22_WebSocket+Redis一對一聊天室" />
+      <kind value="PACKAGE" />
+      <filePath value="$PROJECT_DIR$/22_WebSocket+Redis一對一聊天室/main.go" />
+      <package value="WebSocketRedisSample" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
     <configuration name="go build ginJWT" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="web-sample-go" />
       <working_directory value="$PROJECT_DIR$/100-ginJWT" />
@@ -75,6 +82,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Build.go build WebSocketRedisSample" />
         <item itemvalue="Go Build.go build ginJWT" />
         <item itemvalue="Go Build.go build httpLogin.go" />
       </list>
@@ -122,26 +130,26 @@
       <screen x="0" y="23" width="1680" height="983" />
     </state>
     <state x="879" y="380" key="EnvironmentVariablesDialog/-1920.23.1920.1057/0.23.1680.983@0.23.1680.983" timestamp="1607958889829" />
-    <state width="1358" height="252" key="GridCell.Tab.0.bottom" timestamp="1607960350910">
+    <state width="1638" height="265" key="GridCell.Tab.0.bottom" timestamp="1608181308274">
       <screen x="0" y="23" width="1680" height="983" />
     </state>
     <state width="1358" height="252" key="GridCell.Tab.0.bottom/-1920.23.1920.1057/0.23.1680.983@0.23.1680.983" timestamp="1607960350910" />
-    <state width="1358" height="252" key="GridCell.Tab.0.bottom/0.23.1680.983@0.23.1680.983" timestamp="1605669598572" />
-    <state width="1358" height="252" key="GridCell.Tab.0.center" timestamp="1607960350909">
+    <state width="1638" height="265" key="GridCell.Tab.0.bottom/0.23.1680.983@0.23.1680.983" timestamp="1608181308274" />
+    <state width="1638" height="265" key="GridCell.Tab.0.center" timestamp="1608181308274">
       <screen x="0" y="23" width="1680" height="983" />
     </state>
     <state width="1358" height="252" key="GridCell.Tab.0.center/-1920.23.1920.1057/0.23.1680.983@0.23.1680.983" timestamp="1607960350909" />
-    <state width="1358" height="252" key="GridCell.Tab.0.center/0.23.1680.983@0.23.1680.983" timestamp="1605669598571" />
-    <state width="1358" height="252" key="GridCell.Tab.0.left" timestamp="1607960350909">
+    <state width="1638" height="265" key="GridCell.Tab.0.center/0.23.1680.983@0.23.1680.983" timestamp="1608181308274" />
+    <state width="1638" height="265" key="GridCell.Tab.0.left" timestamp="1608181308273">
       <screen x="0" y="23" width="1680" height="983" />
     </state>
     <state width="1358" height="252" key="GridCell.Tab.0.left/-1920.23.1920.1057/0.23.1680.983@0.23.1680.983" timestamp="1607960350909" />
-    <state width="1358" height="252" key="GridCell.Tab.0.left/0.23.1680.983@0.23.1680.983" timestamp="1605669598570" />
-    <state width="1358" height="252" key="GridCell.Tab.0.right" timestamp="1607960350910">
+    <state width="1638" height="265" key="GridCell.Tab.0.left/0.23.1680.983@0.23.1680.983" timestamp="1608181308273" />
+    <state width="1638" height="265" key="GridCell.Tab.0.right" timestamp="1608181308274">
       <screen x="0" y="23" width="1680" height="983" />
     </state>
     <state width="1358" height="252" key="GridCell.Tab.0.right/-1920.23.1920.1057/0.23.1680.983@0.23.1680.983" timestamp="1607960350910" />
-    <state width="1358" height="252" key="GridCell.Tab.0.right/0.23.1680.983@0.23.1680.983" timestamp="1605669598571" />
+    <state width="1638" height="265" key="GridCell.Tab.0.right/0.23.1680.983@0.23.1680.983" timestamp="1608181308274" />
     <state x="533" y="150" key="SettingsEditor" timestamp="1606131365244">
       <screen x="0" y="23" width="1680" height="983" />
     </state>

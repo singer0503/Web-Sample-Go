@@ -59,3 +59,20 @@ require github.com/gin-gonic/gin v1.5.0
 `go mod download`
 
 會將需要的套件安裝在 GOPATH/pkg/mod 資料夾裡面。而且會發現出現一個 go.sum 的檔案，這個檔案基本上用來記錄套件版本的關係，確保是正確的，是不太需要理會的。
+
+包(Package)的名稱 為包所在的資料夾名稱
+
+# Redius
+抬起頭來FLUSHALL可能太過猛烈了。FLUSHDB是僅刷新數據庫的一個。
+FLUSHALL將清除整個服務器。就像服務器上的每個數據庫一樣。
+由於問題是關於刷新數據庫的，所以我認為這是一個重要的區別，值得單獨回答。
+
+清除整個 Redius Server
+```
+redius-cli FLUSHALL
+```
+
+清除 Redius 該資料庫
+```
+redius-cli FLUSHDB
+```

@@ -102,6 +102,14 @@ func main() {
 			return compareID == chatTo
 		})
 	})
+	// 啟動前先刪除整個 redis db
+	deleteMsg, err2 := redisClient.FlushDB(context.Background()).Result()
+
+	fmt.Println("===================")
+	fmt.Println(deleteMsg)
+	fmt.Println(err2)
+	fmt.Println("===================")
+
 	fmt.Println("http://localhost:8888")
 	r.Run(":8888")
 }
