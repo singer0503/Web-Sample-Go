@@ -76,3 +76,48 @@ redius-cli FLUSHALL
 ```
 redius-cli FLUSHDB
 ```
+
+查詢 全部的 key
+```bash
+323-Maxhuang:~ Apple$ redis-cli
+127.0.0.1:6379> keys *
+1) "61243c22-4351-42eb-aeb4-622bc6b28ac0"
+2) "a1969a7a-e1d2-456c-ade8-4e16dd7bfae1"
+127.0.0.1:6379> 
+
+```
+
+首先應該明白報這個錯誤說明了你用的jedis方法與redis服務器中存儲數據的類型存在衝突。
+
+例如：數據庫中有一個key是usrInfo的數據存儲的是Hash類型的，但是你使用jedis執行數據
+
+操作的時候卻使用了非Hash的操作方法，比如Sorted Sets裡的方法。此時就會報
+
+ERR Operation against a key holding the wrong kind of value這個錯誤！
+
+問題解決：
+
+先執行一條如下命令，usrInfo為其中的一個key值。
+
+redis 127.0.0.1:6379>type usrInfo
+
+此時會顯示出該key存儲在現在redis服務器中的類型，例如：
+
+redis 127.0.0.1:6379>hash
+則表示key為usrInfo的數據是以hash類型存儲在redis服務器裡的，此時操作這個數據就必須使用hset、hget等操作方法。
+
+例如 1 對 1 聊天室的 wait 是用 list
+```
+127.0.0.1:6379> keys *
+1) "wait"
+127.0.0.1:6379> get wait
+(error) WRONGTYPE Operation against a key holding the wrong kind of value
+127.0.0.1:6379> type wait
+list
+127.0.0.1:6379> LLEN wait   
+(integer) 1
+127.0.0.1:6379> LINDEX wait 0
+"8f67935d-ba01-42a7-80b4-5e9a286dab4b"
+127.0.0.1:6379> 
+```
+[Redis]-常用語法速查表 https://www.dotblogs.com.tw/colinlin/2017/06/26/180604

@@ -1,6 +1,8 @@
 // Day22 | 結合 Redis 實作隨機一對一匿名聊天室
 // https://ithelp.ithome.com.tw/articles/10240313
 
+// [Redis]-常用語法速查表
+// https://www.dotblogs.com.tw/colinlin/2017/06/26/180604
 package main
 
 import (
@@ -46,7 +48,7 @@ func init() {
 	redisClient = redis.NewClient(&redis.Options{
 		Addr: "localhost:6379",
 		//Password: "a12345", // no password set
-		//DB:       0,        // use default DB
+		DB: 0, // use default DB
 	})
 	pong, err := redisClient.Ping(context.Background()).Result()
 	if err == nil {
@@ -57,33 +59,38 @@ func init() {
 }
 
 func main() {
-	r := gin.Default()
-	r.LoadHTMLGlob("template/html/*")
-	r.Static("/assets", "./template/assets")
-	r.GET("/", func(c *gin.Context) {
+	server := gin.Default()
+	server.LoadHTMLGlob("template/html/*")
+	server.Static("/assets", "./template/assets")
+	server.GET("/test", func(c *gin.Context) {
+		result := "{'msg':'test ok!'}"
+		c.JSON(http.StatusOK, result)
+	})
+
+	server.GET("/", func(c *gin.Context) {
 		c.HTML(http.StatusOK, "index.html", nil)
 	})
 
-	m := melody.New()
-	r.GET("/ws", func(c *gin.Context) {
-		m.HandleRequest(c.Writer, c.Request)
+	webSocket := melody.New()
+	server.GET("/ws", func(c *gin.Context) {
+		webSocket.HandleRequest(c.Writer, c.Request)
 	})
 
-	m.HandleMessage(func(s *melody.Session, msg []byte) {
+	webSocket.HandleMessage(func(s *melody.Session, msg []byte) {
 		id := GetSessionID(s)
 		chatTo, _ := redisClient.Get(context.TODO(), id).Result()
-		m.BroadcastFilter(msg, func(session *melody.Session) bool {
+		webSocket.BroadcastFilter(msg, func(session *melody.Session) bool {
 			compareID, _ := session.Get(KEY)
 			return compareID == chatTo || compareID == id
 		})
 	})
 
-	m.HandleConnect(func(session *melody.Session) {
+	webSocket.HandleConnect(func(session *melody.Session) {
 		id := InitSession(session)
 		if key, err := GetWaitFirstKey(); err == nil && key != "" {
 			CreateChat(id, key)
 			msg := NewMessage("other", "對方已經", "加入聊天室").GetByteMessage()
-			m.BroadcastFilter(msg, func(session *melody.Session) bool {
+			webSocket.BroadcastFilter(msg, func(session *melody.Session) bool {
 				compareID, _ := session.Get(KEY)
 				return compareID == id || compareID == key
 			})
@@ -92,12 +99,12 @@ func main() {
 		}
 	})
 
-	m.HandleClose(func(session *melody.Session, i int, s string) error {
+	webSocket.HandleClose(func(session *melody.Session, i int, s string) error {
 		id := GetSessionID(session)
 		chatTo, _ := redisClient.Get(context.TODO(), id).Result()
 		msg := NewMessage("other", "對方已經", "離開聊天室").GetByteMessage()
 		RemoveChat(id, chatTo)
-		return m.BroadcastFilter(msg, func(session *melody.Session) bool {
+		return webSocket.BroadcastFilter(msg, func(session *melody.Session) bool {
 			compareID, _ := session.Get(KEY)
 			return compareID == chatTo
 		})
@@ -111,7 +118,7 @@ func main() {
 	fmt.Println("===================")
 
 	fmt.Println("http://localhost:8888")
-	r.Run(":8888")
+	server.Run(":8888")
 }
 
 func AddToWaitList(id string) error {

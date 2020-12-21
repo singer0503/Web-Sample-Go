@@ -25,11 +25,6 @@ var chatroom = document.getElementsByClassName("msger-chat")
 var text = document.getElementById("msg");
 var send = document.getElementById("send")
 
-function getRandomNum(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-// 設定觸發方法
 send.onclick = function (e) {
     handleMessageEvent()
 }
@@ -39,17 +34,7 @@ text.onkeydown = function (e) {
         handleMessageEvent()
     }
 };
-function handleMessageEvent() {
-    ws.send(JSON.stringify({
-        "event": "message",
-        "photo": PERSON_IMG,
-        "name": PERSON_NAME,
-        "content": text.value,
-    }));
-    text.value = "";
-}
 
-// 設定接收訊息
 ws.onmessage = function (e) {
     var m = JSON.parse(e.data)
     var msg = ""
@@ -71,6 +56,21 @@ ws.onmessage = function (e) {
     }
     insertMsg(msg, chatroom[0]);
 };
+
+ws.onclose = function (e) {
+    console.log(e)
+}
+
+function handleMessageEvent() {
+    ws.send(JSON.stringify({
+        "event": "message",
+        "photo": PERSON_IMG,
+        "name": PERSON_NAME,
+        "content": text.value,
+    }));
+    text.value = "";
+}
+
 function getEventMessage(msg) {
     var msg = `<div class="msg-left">${msg}</div>`
     return msg
@@ -82,13 +82,11 @@ function getMessage(name, img, side, text) {
     var msg = `
     <div class="msg ${side}-msg">
       <div class="msg-img" style="background-image: url(${img})"></div>
-
       <div class="msg-bubble">
         <div class="msg-info">
           <div class="msg-info-name">${name}</div>
           <div class="msg-info-time">${d.getFullYear()}/${d.getMonth()}/${d.getDay()} ${d.getHours()}:${d.getMinutes()}</div>
         </div>
-
         <div class="msg-text">${text}</div>
       </div>
     </div>
@@ -99,4 +97,8 @@ function getMessage(name, img, side, text) {
 function insertMsg(msg, domObj) {
     domObj.insertAdjacentHTML("beforeend", msg);
     domObj.scrollTop += 500;
+}
+
+function getRandomNum(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }

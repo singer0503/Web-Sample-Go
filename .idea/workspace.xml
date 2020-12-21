@@ -16,14 +16,20 @@
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </expand>
-    <select />
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:main" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7b67174d-3291-45b1-a99b-283472ebae68" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/22_WebSocket+Redis一對一聊天室/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/22_WebSocket+Redis一對一聊天室/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/18_WebSocket/template/assets/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/18_WebSocket/template/assets/js/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/22_WebSocket+Redis一對一聊天室/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/22_WebSocket+Redis一對一聊天室/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/23_UniTest/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/23_UniTest/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/22_WebSocket+Redis一對一聊天室/template/assets/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/22_WebSocket+Redis一對一聊天室/template/assets/js/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -97,6 +103,14 @@
       <option name="presentableId" value="Default" />
       <updated>1605669293434</updated>
     </task>
+    <task id="LOCAL-00001" summary="修改啟動前先清除 redis db">
+      <created>1608188610761</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1608188610761</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -107,12 +121,28 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="修改啟動前先清除 redis db" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改啟動前先清除 redis db" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -130,29 +160,33 @@
       <screen x="0" y="23" width="1680" height="983" />
     </state>
     <state x="879" y="380" key="EnvironmentVariablesDialog/-1920.23.1920.1057/0.23.1680.983@0.23.1680.983" timestamp="1607958889829" />
-    <state width="1638" height="265" key="GridCell.Tab.0.bottom" timestamp="1608181308274">
+    <state width="1638" height="129" key="GridCell.Tab.0.bottom" timestamp="1608479281514">
       <screen x="0" y="23" width="1680" height="983" />
     </state>
-    <state width="1358" height="252" key="GridCell.Tab.0.bottom/-1920.23.1920.1057/0.23.1680.983@0.23.1680.983" timestamp="1607960350910" />
-    <state width="1638" height="265" key="GridCell.Tab.0.bottom/0.23.1680.983@0.23.1680.983" timestamp="1608181308274" />
-    <state width="1638" height="265" key="GridCell.Tab.0.center" timestamp="1608181308274">
+    <state width="1638" height="129" key="GridCell.Tab.0.bottom/-1920.23.1920.1057/0.23.1680.983@0.23.1680.983" timestamp="1608220505138" />
+    <state width="1638" height="129" key="GridCell.Tab.0.bottom/0.23.1680.983@0.23.1680.983" timestamp="1608479281514" />
+    <state width="1638" height="129" key="GridCell.Tab.0.center" timestamp="1608479281513">
       <screen x="0" y="23" width="1680" height="983" />
     </state>
-    <state width="1358" height="252" key="GridCell.Tab.0.center/-1920.23.1920.1057/0.23.1680.983@0.23.1680.983" timestamp="1607960350909" />
-    <state width="1638" height="265" key="GridCell.Tab.0.center/0.23.1680.983@0.23.1680.983" timestamp="1608181308274" />
-    <state width="1638" height="265" key="GridCell.Tab.0.left" timestamp="1608181308273">
+    <state width="1638" height="129" key="GridCell.Tab.0.center/-1920.23.1920.1057/0.23.1680.983@0.23.1680.983" timestamp="1608220505137" />
+    <state width="1638" height="129" key="GridCell.Tab.0.center/0.23.1680.983@0.23.1680.983" timestamp="1608479281513" />
+    <state width="1638" height="129" key="GridCell.Tab.0.left" timestamp="1608479281513">
       <screen x="0" y="23" width="1680" height="983" />
     </state>
-    <state width="1358" height="252" key="GridCell.Tab.0.left/-1920.23.1920.1057/0.23.1680.983@0.23.1680.983" timestamp="1607960350909" />
-    <state width="1638" height="265" key="GridCell.Tab.0.left/0.23.1680.983@0.23.1680.983" timestamp="1608181308273" />
-    <state width="1638" height="265" key="GridCell.Tab.0.right" timestamp="1608181308274">
+    <state width="1638" height="129" key="GridCell.Tab.0.left/-1920.23.1920.1057/0.23.1680.983@0.23.1680.983" timestamp="1608220505137" />
+    <state width="1638" height="129" key="GridCell.Tab.0.left/0.23.1680.983@0.23.1680.983" timestamp="1608479281513" />
+    <state width="1638" height="129" key="GridCell.Tab.0.right" timestamp="1608479281514">
       <screen x="0" y="23" width="1680" height="983" />
     </state>
-    <state width="1358" height="252" key="GridCell.Tab.0.right/-1920.23.1920.1057/0.23.1680.983@0.23.1680.983" timestamp="1607960350910" />
-    <state width="1638" height="265" key="GridCell.Tab.0.right/0.23.1680.983@0.23.1680.983" timestamp="1608181308274" />
+    <state width="1638" height="129" key="GridCell.Tab.0.right/-1920.23.1920.1057/0.23.1680.983@0.23.1680.983" timestamp="1608220505138" />
+    <state width="1638" height="129" key="GridCell.Tab.0.right/0.23.1680.983@0.23.1680.983" timestamp="1608479281514" />
     <state x="533" y="150" key="SettingsEditor" timestamp="1606131365244">
       <screen x="0" y="23" width="1680" height="983" />
     </state>
     <state x="533" y="150" key="SettingsEditor/0.23.1680.983@0.23.1680.983" timestamp="1606131365244" />
+    <state x="440" y="254" key="Vcs.Push.Dialog.v2" timestamp="1608188719120">
+      <screen x="0" y="23" width="1680" height="983" />
+    </state>
+    <state x="440" y="254" key="Vcs.Push.Dialog.v2/0.23.1680.983@0.23.1680.983" timestamp="1608188719120" />
   </component>
 </project>
