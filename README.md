@@ -121,3 +121,18 @@ list
 127.0.0.1:6379> 
 ```
 [Redis]-常用語法速查表 https://www.dotblogs.com.tw/colinlin/2017/06/26/180604
+
+一次取得該 list 所有資料
+```
+LRANGE room1 0 -1
+```
+
+
+刪除 list 裡面的某一筆資料
+https://redis.io/commands/lrem
+```
+LREM room1 0 "de72bfa2-e8fd-4174-9a8f-15d044925591"
+```
+
+css 設計參考
+https://wcc723.github.io/css/2017/07/21/css-flex/
