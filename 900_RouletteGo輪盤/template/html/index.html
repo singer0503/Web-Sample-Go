@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>公開匿名聊天室</title>
-    <link rel="stylesheet" href="assets/css/style.css"/>
+    <link rel="stylesheet" href="assets/css/style.css"/> <!-- 聊天室 需要的 css -->
+    <link rel="stylesheet" href="assets/css/reset.min.css" /> <!-- roulette 需要的 css -->
+    <link rel="stylesheet/less" type="text/css" href="assets/css/roulette-style.less" /> <!-- roulette 需要的 less -->
+    <script src="assets/js/less@3.13.js" ></script> <!-- roulette 需要的, 用來在 browser 編譯 less -->
+    <!--<link rel="stylesheet" href="assets/css/roulette-style.css" />-->  <!-- roulette less 編譯出來的 css -->
 </head>
 <body>
 <div class="flex-body">
@@ -31,6 +35,9 @@
         </div>
     </section>
 </div>
-<script src="assets/js/main.js"></script>
+<script src="assets/js/main.js"></script> <!-- 聊天室 需要的 js -->
+<script src="assets/js/jquery.min.js"></script> <!-- roulette 需要的 js -->
+<script src="assets/js/hammer.min.js"></script> <!-- roulette 需要的 js -->
+<script src="assets/js/roulette-script.js"></script>  <!-- roulette 需要的 js -->
 </body>
 </html>

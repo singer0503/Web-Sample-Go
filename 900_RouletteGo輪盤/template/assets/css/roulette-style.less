@@ -1,18 +1,20 @@
+// Less 介紹
+// https://www.oxxostudio.tw/articles/201601/css-less-01.html
 
-@platesize:350px; // sets width and height
-@pitwidth:32px; // the width of each pit. 32 seems to work best
-@rotate:(360/@to)+0deg; // how far to rotate each slice depends on how many slices you have
+@platesize:350px; // 設定寬度以及高度
+@pitwidth:32px; // 每個坑的寬度。 32似乎效果最好
+@rotate:(360/@to)+0deg; // 每個切片旋轉多少取決於您有多少個切片
 
-@rimsize:6px; // size of the bevelled rim edge
-@trim:gold; // or hex value
-@trimSecondary:silver; // or hex value
-@spinButton:green; // or hex value
-@resetButton:darkgreen; // or hex value
+@rimsize:6px; // 斜邊邊緣的尺寸 size of the bevelled rim edge
+@trim:gold; // 或者 16 進位值 or hex value
+@trimSecondary:silver; //或者 16 進位值 or hex value
+@spinButton:green; // 或者 16 進位值 or hex value
+@resetButton:darkgreen; // 或者 16 進位值 or hex value
 
-@spins:8; // the number of laps the ball spins before resting
+@spins:8; // 休息前球旋轉的圈數 the number of laps the ball spins before resting
 
 @from: 1; 
-@to: 37; // number of slices (36 numbers plus zero)
+@to: 37; // 切片數（36個數字加零） number of slices (36 numbers plus zero)
 .loop(@index) when(@index < @to) {
   .number:nth-child(@{index}) {
    transform:rotateZ(@rotate*@index);
@@ -21,24 +23,26 @@
 }
 .loop(@from);
 
-body{ 
-  font-family: 'Roboto', sans-serif;
-  // https://leaverou.github.io/css3patterns/#upholstery
-  background:
-radial-gradient(hsl(0, 100%, 27%) 4%, hsl(0, 100%, 18%) 9%, hsla(0, 100%, 20%, 0) 9%) 0 0,
-radial-gradient(hsl(0, 100%, 27%) 4%, hsl(0, 100%, 18%) 8%, hsla(0, 100%, 20%, 0) 10%) 50px 50px,
-radial-gradient(hsla(0, 100%, 30%, 0.8) 20%, hsla(0, 100%, 20%, 0)) 50px 0,
-radial-gradient(hsla(0, 100%, 30%, 0.8) 20%, hsla(0, 100%, 20%, 0)) 0 50px,
-radial-gradient(hsla(0, 100%, 20%, 1) 35%, hsla(0, 100%, 20%, 0) 60%) 50px 0,
-radial-gradient(hsla(0, 100%, 20%, 1) 35%, hsla(0, 100%, 20%, 0) 60%) 100px 50px,
-radial-gradient(hsla(0, 100%, 15%, 0.7), hsla(0, 100%, 20%, 0)) 0 0,
-radial-gradient(hsla(0, 100%, 15%, 0.7), hsla(0, 100%, 20%, 0)) 50px 50px,
-linear-gradient(45deg, hsla(0, 100%, 20%, 0) 49%, hsla(0, 100%, 0%, 1) 50%, hsla(0, 100%, 20%, 0) 70%) 0 0,
-linear-gradient(-45deg, hsla(0, 100%, 20%, 0) 49%, hsla(0, 100%, 0%, 1) 50%, hsla(0, 100%, 20%, 0) 70%) 0 0;
-background-color: #300;
-background-size: 100px 100px;
-  
-}
+// 暫時不需要這麼華麗的背景～
+// body{
+//   font-family: 'Roboto', sans-serif;
+//   // https://leaverou.github.io/css3patterns/#upholstery
+//   background:
+// radial-gradient(hsl(0, 100%, 27%) 4%, hsl(0, 100%, 18%) 9%, hsla(0, 100%, 20%, 0) 9%) 0 0,
+// radial-gradient(hsl(0, 100%, 27%) 4%, hsl(0, 100%, 18%) 8%, hsla(0, 100%, 20%, 0) 10%) 50px 50px,
+// radial-gradient(hsla(0, 100%, 30%, 0.8) 20%, hsla(0, 100%, 20%, 0)) 50px 0,
+// radial-gradient(hsla(0, 100%, 30%, 0.8) 20%, hsla(0, 100%, 20%, 0)) 0 50px,
+// radial-gradient(hsla(0, 100%, 20%, 1) 35%, hsla(0, 100%, 20%, 0) 60%) 50px 0,
+// radial-gradient(hsla(0, 100%, 20%, 1) 35%, hsla(0, 100%, 20%, 0) 60%) 100px 50px,
+// radial-gradient(hsla(0, 100%, 15%, 0.7), hsla(0, 100%, 20%, 0)) 0 0,
+// radial-gradient(hsla(0, 100%, 15%, 0.7), hsla(0, 100%, 20%, 0)) 50px 50px,
+// linear-gradient(45deg, hsla(0, 100%, 20%, 0) 49%, hsla(0, 100%, 0%, 1) 50%, hsla(0, 100%, 20%, 0) 70%) 0 0,
+// linear-gradient(-45deg, hsla(0, 100%, 20%, 0) 49%, hsla(0, 100%, 0%, 1) 50%, hsla(0, 100%, 20%, 0) 70%) 0 0;
+// background-color: #300;
+// background-size: 100px 100px;
+//
+// }
+
 
 .main{
   width:@platesize+24;
