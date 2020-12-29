@@ -3,6 +3,7 @@ const RIGHT = "right";
 
 const EVENT_MESSAGE = "message"
 const EVENT_OTHER = "other"
+const EVENT_ROULETTE = "roulette"
 
 const userPhotos = [
     "https://www.flaticon.com/svg/static/icons/svg/3408/3408584.svg",
@@ -53,6 +54,14 @@ ws.onmessage = function (e) {
                 msg = getEventMessage("您已" + m.content)
             }
             break;
+        case EVENT_ROULETTE:
+            // TODO 這邊要寫開獎行為
+            msg = getEventMessage("本局輪盤開出號碼為： "+m.content)
+            //spinFunc()
+            let randomNumber = parseInt(m.content)
+            resetFunc()
+            spinFunc(randomNumber)
+            break;
     }
     insertMsg(msg, chatroom[0]);
 };
@@ -101,4 +110,55 @@ function insertMsg(msg, domObj) {
 
 function getRandomNum(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function resetFunc(){
+    // remove the spinto data attr so the ball 'resets'
+    $inner.attr('data-spinto','').removeClass('rest');
+    $('#reset').hide();
+    $spin.show();
+    $data.removeClass('reveal');
+}
+
+function spinFunc(randomNumber){
+
+    // 產生隨機數給 nth-child 選擇器 get a random number between 0 and 36 and apply it to the nth-child selector
+    //var  randomNumber = Math.floor(Math.random() * 36),
+    color = null;
+    $inner.attr('data-spinto', randomNumber).find('li:nth-child('+ randomNumber +') input').prop('checked','checked');
+    // 隱藏旋轉按鈕可防止重複單擊 prevent repeated clicks on the spin button by hiding it
+    $('#spin').hide();
+    // 禁用重置按鈕，直到球停止旋轉 disable the reset button until the ball has stopped spinning
+    $reset.addClass('disabled').prop('disabled','disabled').show();
+
+    $('.placeholder').remove();
+
+    console.log('1')
+
+
+    // 停球時刪除禁用的屬性 remove the disabled attribute when the ball has stopped
+    setTimeout(function() {
+        $reset.removeClass('disabled').prop('disabled','');
+
+        if($.inArray(randomNumber, red) !== -1){ color = 'red'} else { color = 'black'};
+        if(randomNumber == 0){color = 'green'};
+
+        $('.result-number').text(randomNumber);
+        $('.result-color').text(color);
+        $('.result').css({'background-color': ''+color+''});
+        $data.addClass('reveal');
+        $inner.addClass('rest');
+
+        $thisResult = '<li class="previous-result color-'+ color +'"><span class="previous-number">'+ randomNumber +'</span><span class="previous-color">'+ color +'</span></li>';
+        $('.previous-list').prepend($thisResult);
+
+        // 最多顯示三筆資料
+        if ($('.previous-list li').length >= 5){
+            console.log("test" +$('.previous-list li').length)
+            $('.previous-list li').last().remove();
+        }
+
+        console.log('3')
+    }, 9000);
+    console.log('4')
 }

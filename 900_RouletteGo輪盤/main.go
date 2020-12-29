@@ -144,10 +144,10 @@ func main() {
 	// 負責開獎邏輯的 Goroutine
 	go func() {
 		for {
-			randServiceHandler := rand_generator(50) // 0 ~ 49
+			randServiceHandler := rand_generator(37) // 0 ~ 36
 			result := <-randServiceHandler
 			message1 <- strconv.Itoa(result)
-			time.Sleep(time.Second * 10)
+			time.Sleep(time.Second * 20)
 		}
 	}()
 
@@ -157,7 +157,7 @@ func main() {
 			if result == "" {
 				break
 			} else {
-				webSocket.Broadcast(NewMessage("other", "", "本局輪盤開出號碼為： "+result).GetByteMessage())
+				webSocket.Broadcast(NewMessage("roulette", "", result).GetByteMessage())
 				fmt.Println(" -- this is a message : " + result)
 			}
 		}
