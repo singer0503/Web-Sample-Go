@@ -43,7 +43,7 @@ body {
     display: flex;
     flex-flow: column wrap;
     justify-content: space-between;
-    width: 100%;
+    /*width: 100%;*/
     max-width: 1024px;
     margin: 25px 10px;
     height: calc(100% - 50px);
@@ -52,6 +52,14 @@ body {
     background-color: #f86161;
     box-shadow: 0 15px 15px -5px rgba(0, 0, 0, 0.2);
 }
+
+.bet-viewer{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    background-color: #f8dd1d;
+}
+
 
 .msger {
     display: flex;
