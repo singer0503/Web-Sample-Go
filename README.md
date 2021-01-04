@@ -139,3 +139,7 @@ https://wcc723.github.io/css/2017/07/21/css-flex/
 
 ### Less 介紹
 https://www.oxxostudio.tw/articles/201601/css-less-01.html
+
+### go 的 json.Unmarshal 可以把 json 字串轉成 struct，而 json.Marshal 可以將 struct 轉成 json 字串．
+https://ithelp.ithome.com.tw/articles/10205062
+https://www.flysnow.org/2018/11/05/golang-concat-strings-performance-analysis.html

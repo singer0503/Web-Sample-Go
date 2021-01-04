@@ -55,9 +55,9 @@ ws.onmessage = function (e) {
             }
             break;
         case EVENT_ROULETTE:
-            // TODO 這邊要寫開獎行為
+            // 這邊是收到後端開幾數字的開獎行為
             msg = getEventMessage("本局輪盤開出號碼為： "+m.content)
-            //spinFunc()
+
             let randomNumber = parseInt(m.content)
             resetFunc()
             spinFunc(randomNumber)
@@ -133,9 +133,6 @@ function spinFunc(randomNumber){
 
     $('.placeholder').remove();
 
-    console.log('1')
-
-
     // 停球時刪除禁用的屬性 remove the disabled attribute when the ball has stopped
     setTimeout(function() {
         $reset.removeClass('disabled').prop('disabled','');
@@ -152,13 +149,11 @@ function spinFunc(randomNumber){
         $thisResult = '<li class="previous-result color-'+ color +'"><span class="previous-number">'+ randomNumber +'</span><span class="previous-color">'+ color +'</span></li>';
         $('.previous-list').prepend($thisResult);
 
-        // 最多顯示三筆資料
+        // 最多顯示四筆資料
         if ($('.previous-list li').length >= 5){
             console.log("test" +$('.previous-list li').length)
             $('.previous-list li').last().remove();
         }
 
-        console.log('3')
     }, 9000);
-    console.log('4')
 }

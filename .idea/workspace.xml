@@ -25,12 +25,14 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7b67174d-3291-45b1-a99b-283472ebae68" name="Default Changelist" comment="將前端需要的 css, js 套入網頁中">
+    <list default="true" id="7b67174d-3291-45b1-a99b-283472ebae68" name="Default Changelist" comment="將後端拋出的數字與前端畫面做結合">
+      <change afterPath="$PROJECT_DIR$/103_bet_plate前端參考範例/bet-chip-100.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/103_bet_plate前端參考範例/jquery.easing.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/103_bet_plate前端參考範例/jquery.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/900_RouletteGo輪盤/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/900_RouletteGo輪盤/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/900_RouletteGo輪盤/template/assets/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/900_RouletteGo輪盤/template/assets/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/900_RouletteGo輪盤/template/assets/js/roulette-script.js" beforeDir="false" afterPath="$PROJECT_DIR$/900_RouletteGo輪盤/template/assets/js/roulette-script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/900_RouletteGo輪盤/template/html/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/900_RouletteGo輪盤/template/html/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,11 +60,12 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/900_RouletteGo輪盤/template/assets/js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/103_bet_plate前端參考範例" />
     <property name="settings.editor.selected.configurable" value="terminal" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/103_bet_plate前端參考範例" />
       <recent name="$PROJECT_DIR$/900_RouletteGo輪盤/template/assets/js" />
       <recent name="$PROJECT_DIR$/900_RouletteGo輪盤/template/assets/css" />
     </key>
@@ -168,7 +171,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608868085607</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="將後端拋出的數字與前端畫面做結合">
+      <created>1609232734043</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1609232734043</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -203,7 +213,8 @@
     <MESSAGE value="修改完成 roulette room1" />
     <MESSAGE value="加入前端參考範例" />
     <MESSAGE value="將前端需要的 css, js 套入網頁中" />
-    <option name="LAST_COMMIT_MESSAGE" value="將前端需要的 css, js 套入網頁中" />
+    <MESSAGE value="將後端拋出的數字與前端畫面做結合" />
+    <option name="LAST_COMMIT_MESSAGE" value="將後端拋出的數字與前端畫面做結合" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -233,26 +244,26 @@
       <screen x="0" y="23" width="1680" height="983" />
     </state>
     <state x="879" y="380" key="EnvironmentVariablesDialog/-1920.23.1920.1057/0.23.1680.983@0.23.1680.983" timestamp="1607958889829" />
-    <state width="1585" height="173" key="GridCell.Tab.0.bottom" timestamp="1609224858713">
+    <state width="1585" height="165" key="GridCell.Tab.0.bottom" timestamp="1609734936176">
       <screen x="0" y="23" width="1680" height="983" />
     </state>
     <state width="1638" height="166" key="GridCell.Tab.0.bottom/-1920.23.1920.1057/0.23.1680.983@0.23.1680.983" timestamp="1608739422067" />
-    <state width="1585" height="173" key="GridCell.Tab.0.bottom/0.23.1680.983@0.23.1680.983" timestamp="1609224858713" />
-    <state width="1585" height="173" key="GridCell.Tab.0.center" timestamp="1609224858712">
+    <state width="1585" height="165" key="GridCell.Tab.0.bottom/0.23.1680.983@0.23.1680.983" timestamp="1609734936176" />
+    <state width="1585" height="165" key="GridCell.Tab.0.center" timestamp="1609734936176">
       <screen x="0" y="23" width="1680" height="983" />
     </state>
     <state width="1638" height="166" key="GridCell.Tab.0.center/-1920.23.1920.1057/0.23.1680.983@0.23.1680.983" timestamp="1608739422067" />
-    <state width="1585" height="173" key="GridCell.Tab.0.center/0.23.1680.983@0.23.1680.983" timestamp="1609224858712" />
-    <state width="1585" height="173" key="GridCell.Tab.0.left" timestamp="1609224858711">
+    <state width="1585" height="165" key="GridCell.Tab.0.center/0.23.1680.983@0.23.1680.983" timestamp="1609734936176" />
+    <state width="1585" height="165" key="GridCell.Tab.0.left" timestamp="1609734936175">
       <screen x="0" y="23" width="1680" height="983" />
     </state>
     <state width="1638" height="166" key="GridCell.Tab.0.left/-1920.23.1920.1057/0.23.1680.983@0.23.1680.983" timestamp="1608739422066" />
-    <state width="1585" height="173" key="GridCell.Tab.0.left/0.23.1680.983@0.23.1680.983" timestamp="1609224858711" />
-    <state width="1585" height="173" key="GridCell.Tab.0.right" timestamp="1609224858712">
+    <state width="1585" height="165" key="GridCell.Tab.0.left/0.23.1680.983@0.23.1680.983" timestamp="1609734936175" />
+    <state width="1585" height="165" key="GridCell.Tab.0.right" timestamp="1609734936176">
       <screen x="0" y="23" width="1680" height="983" />
     </state>
     <state width="1638" height="166" key="GridCell.Tab.0.right/-1920.23.1920.1057/0.23.1680.983@0.23.1680.983" timestamp="1608739422067" />
-    <state width="1585" height="173" key="GridCell.Tab.0.right/0.23.1680.983@0.23.1680.983" timestamp="1609224858712" />
+    <state width="1585" height="165" key="GridCell.Tab.0.right/0.23.1680.983@0.23.1680.983" timestamp="1609734936176" />
     <state width="1638" height="328" key="GridCell.Tab.1.bottom" timestamp="1608720842451">
       <screen x="0" y="23" width="1680" height="983" />
     </state>
@@ -273,9 +284,9 @@
       <screen x="0" y="23" width="1680" height="983" />
     </state>
     <state x="533" y="150" key="SettingsEditor/0.23.1680.983@0.23.1680.983" timestamp="1606131365244" />
-    <state x="440" y="254" key="Vcs.Push.Dialog.v2" timestamp="1609216675437">
+    <state x="440" y="254" key="Vcs.Push.Dialog.v2" timestamp="1609232741680">
       <screen x="0" y="23" width="1680" height="983" />
     </state>
-    <state x="440" y="254" key="Vcs.Push.Dialog.v2/0.23.1680.983@0.23.1680.983" timestamp="1609216675437" />
+    <state x="440" y="254" key="Vcs.Push.Dialog.v2/0.23.1680.983@0.23.1680.983" timestamp="1609232741680" />
   </component>
 </project>

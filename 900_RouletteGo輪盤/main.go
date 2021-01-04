@@ -81,6 +81,15 @@ func main() {
 
 	// 當 golang 端收到訊息如何處置
 	webSocket.HandleMessage(func(s *melody.Session, msg []byte) {
+		// TODO:
+		var message Message
+		json.Unmarshal(msg, &message)
+		fmt.Println("HandleMessage == " + string(msg))
+		// TODO: 這邊要使用 event 來判斷是訊息還是下注
+
+		// TODO: 若是下注則需要寫入 redis 做暫存
+
+		// TODO: 發送訊息邏輯
 		listString, _ := GetRoom1List()
 		webSocket.BroadcastFilter(msg, func(session *melody.Session) bool {
 			compareID, _ := session.Get(KEY)
@@ -138,10 +147,10 @@ func main() {
 	})
 
 	//================================
-	// 定義一個字串通道
+	// 定義一個字串通道(開獎數字使用)
 	message1 := make(chan string)
-
-	// 負責開獎邏輯的 Goroutine
+	message1Return := make(chan string)
+	// 負責開出數字的邏輯 Goroutine
 	go func() {
 		for {
 			randServiceHandler := rand_generator(37) // 0 ~ 36
@@ -151,7 +160,7 @@ func main() {
 		}
 	}()
 
-	// 負責接收通道發送出來的開獎訊息 Goroutine
+	// 負責接收通道發送出來的開獎數字訊息, 送出給前端網頁 Goroutine
 	go func() {
 		for result := range message1 {
 			if result == "" {
@@ -159,12 +168,21 @@ func main() {
 			} else {
 				webSocket.Broadcast(NewMessage("roulette", "", result).GetByteMessage())
 				fmt.Println(" -- this is a message : " + result)
+				message1Return <- result
 			}
 		}
 	}()
 
 	//================================
+	// 接收通道發送出的開獎數字, 進行注碼計算
+	go func() {
+		for item := range message1Return {
+			fmt.Println("開獎後計算賠率以及返現 : " + item)
+			// TODO: 抓取 redis 下注的人，計算賠率後回寫 redis 以及寫入資料庫
+		}
+	}()
 
+	//================================
 	// 啟動前先刪除整個 redis db
 	deleteMsg, err2 := redisClient.FlushDB(context.Background()).Result()
 
