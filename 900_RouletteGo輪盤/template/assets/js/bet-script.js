@@ -27,6 +27,7 @@
 						break;
 				}
 			}
+
 			return cells;
 		};
 
@@ -207,7 +208,7 @@ for(var i=0;i<divs.length;i++){
 		attr=divs[i].getAttribute("data-sector");
 		if(attr==null)continue;
 		var index=36+parseInt(attr);
-		
+		console.log(divs[i].getBoundingClientRect()) // TODO: 還是有點偏移量
 		var rekt=divs[i].getBoundingClientRect();
 		squares[index]=new Array(2);
 		squares[index][1]=rekt.top+10;

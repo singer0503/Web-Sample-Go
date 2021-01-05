@@ -10,7 +10,14 @@
 - 09 env 練習
 - 10 i18n 練習
 - 11 使用者管理 Web api 開發練習，並實作乾淨的架構
-- 12 WebSocket
+- 18_WebSocket
+- 21_WebSocket+Redis一對一聊天室
+- 23_UniTest
+- 100_ginJWT 範例
+- 101 Random 隨機數應用範例
+- 102_css-roulette-wheel前端參考範例
+- 103_bet_plate前端參考範例
+- 900_RouletteGo 輪盤       ###輪盤作品請直接參考這個！！！ 
 
 傳統需要去設定 GOPATH
 ```go

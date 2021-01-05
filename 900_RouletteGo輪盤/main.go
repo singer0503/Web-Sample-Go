@@ -62,6 +62,7 @@ func init() {
 }
 
 func main() {
+
 	server := gin.Default()
 	server.LoadHTMLGlob("template/html/*")
 	server.Static("/assets", "./template/assets")

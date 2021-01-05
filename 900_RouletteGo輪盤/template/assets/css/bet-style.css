@@ -126,8 +126,8 @@ tr {
 /* controlls */
 .roulette .controlls {
   position: relative;
-  top: 0;
-  left: 0;
+  top: -13px; /*TODO:起始位置, 偏移量調整*/
+  left: -12px;/*TODO:起始位置, 偏移量調整*/
   opacity: 0;
 }
 
