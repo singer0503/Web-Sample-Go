@@ -222,6 +222,7 @@ for(var i=0;i<divs.length;i++){
 	}
 }
 
+// 繪製 betdiv 下注記錄區塊 動作為 ->清空整個 div 再把已下住的 bets 統計後繪製計算
 function UpdateBets(){
 	var betdiv=document.getElementById("bets");
 	betdiv.innerHTML='';
@@ -229,6 +230,7 @@ function UpdateBets(){
 	for(var i=0;i<37;i++)if(bets[i]>0)betdiv.innerHTML+="Number "+i+": "+(bets[i]*CurrentTier).toFixed(2)+"<br>";
 }
 
+// 重置所有參數回初始狀態
 function Reset(){
 	for(var i=0;i<bets.length;i++){
 		bets[i]=0;
@@ -240,18 +242,22 @@ function Reset(){
 	UpdateBalance();
 }
 
+//計算所有總下注額
 function TotalBets(){
 	var r=0;
 	for(var i=0;i<bets.length;i++)r+=bets[i];
 	return r;
 }
 
+// 產生隨機數使用的方法
 function rInt(min,max){
 	return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+// 放下注圖片使用的 img array
 var chips=new Array(48);
 
+// 將下注圖片繪製於 div 之上
 function ChangeBet(id,amount){
 	if(amount>0&&TotalBets()==50){
 		//maybe some beep
@@ -285,6 +291,7 @@ function ChangeBet(id,amount){
 	UpdateBalance();
 }
 
+// 更新目前現金資產畫面
 function UpdateBalance(){
 	var e=document.getElementById("balance");
 	e.innerHTML="Balance: "+balance.toFixed(2)+" ETH";
@@ -292,6 +299,7 @@ function UpdateBalance(){
 	if(tb>0)e.innerHTML+=" ("+(tb*CurrentTier).toFixed(2)+")";
 }
 
+// 開獎
 function Place(){
 	var bet=0;
 	for(var i=0;i<bets.length;i++)if(bets[i]!=0)bet+=bets[i];
@@ -351,8 +359,11 @@ var sectors=[
 ];
 
 var hovering=0;
+
+// 計算下注在哪個區域使用的變數
 var bets=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 
+// 選擇多筆下注使用的記號
 var sectormultipliers=[
 	[0,0,0,3,0,0,3,0,0,3,0,0,3,0,0,3,0,0,3,0,0,3,0,0,3,0,0,3,0,0,3,0,0,3,0,0,3],//3rd column
 	[0,0,3,0,0,3,0,0,3,0,0,3,0,0,3,0,0,3,0,0,3,0,0,3,0,0,3,0,0,3,0,0,3,0,0,3,0],//2nd column

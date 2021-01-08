@@ -72,6 +72,10 @@ func main() {
 	})
 
 	server.GET("/", func(c *gin.Context) {
+		// 在http包使用的時候，註冊了/這個根路徑的模式處理，瀏覽器會自動的請求 favicon.ico，要注意處理，否則會出現兩次請求
+		if c.Request.RequestURI == "/favicon.ico" {
+			return
+		}
 		c.HTML(http.StatusOK, "index.html", nil)
 	})
 
@@ -150,7 +154,9 @@ func main() {
 	//================================
 	// 定義一個字串通道(開獎數字使用)
 	message1 := make(chan string)
+	// 定義一個字串通道(注碼計算使用)
 	message1Return := make(chan string)
+
 	// 負責開出數字的邏輯 Goroutine
 	go func() {
 		for {
