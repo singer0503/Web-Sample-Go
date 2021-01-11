@@ -25,10 +25,10 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7b67174d-3291-45b1-a99b-283472ebae68" name="Default Changelist" comment="將後端拋出的數字與前端畫面做結合">
+    <list default="true" id="7b67174d-3291-45b1-a99b-283472ebae68" name="Default Changelist" comment="加上註解">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/900_RouletteGo輪盤/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/900_RouletteGo輪盤/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/900_RouletteGo輪盤/template/assets/js/bet-script.js" beforeDir="false" afterPath="$PROJECT_DIR$/900_RouletteGo輪盤/template/assets/js/bet-script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/900_RouletteGo輪盤/template/html/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/900_RouletteGo輪盤/template/html/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -196,7 +196,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609842064344</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="加上註解">
+      <created>1610102383179</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1610102383179</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -235,7 +242,8 @@
     <MESSAGE value="增加下注盤參考範例" />
     <MESSAGE value="把 bet viewer 加進來，還要調整 css" />
     <MESSAGE value="畫面調整以及說明調整，下注盤的右半部尚未調整好" />
-    <option name="LAST_COMMIT_MESSAGE" value="畫面調整以及說明調整，下注盤的右半部尚未調整好" />
+    <MESSAGE value="加上註解" />
+    <option name="LAST_COMMIT_MESSAGE" value="加上註解" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -265,26 +273,26 @@
       <screen x="0" y="23" width="1680" height="983" />
     </state>
     <state x="879" y="380" key="EnvironmentVariablesDialog/-1920.23.1920.1057/0.23.1680.983@0.23.1680.983" timestamp="1607958889829" />
-    <state width="1585" height="173" key="GridCell.Tab.0.bottom" timestamp="1610095001603">
+    <state width="1638" height="173" key="GridCell.Tab.0.bottom" timestamp="1610290182541">
       <screen x="0" y="23" width="1680" height="983" />
     </state>
     <state width="1638" height="166" key="GridCell.Tab.0.bottom/-1920.23.1920.1057/0.23.1680.983@0.23.1680.983" timestamp="1608739422067" />
-    <state width="1585" height="173" key="GridCell.Tab.0.bottom/0.23.1680.983@0.23.1680.983" timestamp="1610095001603" />
-    <state width="1585" height="173" key="GridCell.Tab.0.center" timestamp="1610095001602">
+    <state width="1638" height="173" key="GridCell.Tab.0.bottom/0.23.1680.983@0.23.1680.983" timestamp="1610290182541" />
+    <state width="1638" height="173" key="GridCell.Tab.0.center" timestamp="1610290182540">
       <screen x="0" y="23" width="1680" height="983" />
     </state>
     <state width="1638" height="166" key="GridCell.Tab.0.center/-1920.23.1920.1057/0.23.1680.983@0.23.1680.983" timestamp="1608739422067" />
-    <state width="1585" height="173" key="GridCell.Tab.0.center/0.23.1680.983@0.23.1680.983" timestamp="1610095001602" />
-    <state width="1585" height="173" key="GridCell.Tab.0.left" timestamp="1610095001602">
+    <state width="1638" height="173" key="GridCell.Tab.0.center/0.23.1680.983@0.23.1680.983" timestamp="1610290182540" />
+    <state width="1638" height="173" key="GridCell.Tab.0.left" timestamp="1610290182540">
       <screen x="0" y="23" width="1680" height="983" />
     </state>
     <state width="1638" height="166" key="GridCell.Tab.0.left/-1920.23.1920.1057/0.23.1680.983@0.23.1680.983" timestamp="1608739422066" />
-    <state width="1585" height="173" key="GridCell.Tab.0.left/0.23.1680.983@0.23.1680.983" timestamp="1610095001602" />
-    <state width="1585" height="173" key="GridCell.Tab.0.right" timestamp="1610095001603">
+    <state width="1638" height="173" key="GridCell.Tab.0.left/0.23.1680.983@0.23.1680.983" timestamp="1610290182540" />
+    <state width="1638" height="173" key="GridCell.Tab.0.right" timestamp="1610290182541">
       <screen x="0" y="23" width="1680" height="983" />
     </state>
     <state width="1638" height="166" key="GridCell.Tab.0.right/-1920.23.1920.1057/0.23.1680.983@0.23.1680.983" timestamp="1608739422067" />
-    <state width="1585" height="173" key="GridCell.Tab.0.right/0.23.1680.983@0.23.1680.983" timestamp="1610095001603" />
+    <state width="1638" height="173" key="GridCell.Tab.0.right/0.23.1680.983@0.23.1680.983" timestamp="1610290182541" />
     <state width="1638" height="328" key="GridCell.Tab.1.bottom" timestamp="1608720842451">
       <screen x="0" y="23" width="1680" height="983" />
     </state>
@@ -305,10 +313,10 @@
       <screen x="0" y="23" width="1680" height="983" />
     </state>
     <state x="533" y="150" key="SettingsEditor/0.23.1680.983@0.23.1680.983" timestamp="1609835976877" />
-    <state x="440" y="254" key="Vcs.Push.Dialog.v2" timestamp="1609842067604">
+    <state x="440" y="254" key="Vcs.Push.Dialog.v2" timestamp="1610102387898">
       <screen x="0" y="23" width="1680" height="983" />
     </state>
-    <state x="440" y="254" key="Vcs.Push.Dialog.v2/0.23.1680.983@0.23.1680.983" timestamp="1609842067604" />
+    <state x="440" y="254" key="Vcs.Push.Dialog.v2/0.23.1680.983@0.23.1680.983" timestamp="1610102387898" />
     <state x="664" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1609738529133">
       <screen x="0" y="23" width="1680" height="983" />
     </state>

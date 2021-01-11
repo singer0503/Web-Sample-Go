@@ -195,7 +195,7 @@
 		});
 	})();
 	
-document.oncontextmenu = function() {if(hovering)return false;};
+document.oncontextmenu = function() {if(hovering)return false;}; // 如果滑鼠移動到下注盤上，就把右鍵功能取消
 
 })(jQuery);
 
@@ -236,7 +236,7 @@ function Reset(){
 		bets[i]=0;
 		if(chips[i]!=null)for(var j=0;chips[i].length>0;j++)document.body.removeChild(chips[i].pop());
 	}
-	balance=1;
+	balance=10000; //TODO 要去拿到目前帳戶的餘額
 	
 	UpdateBets();
 	UpdateBalance();
@@ -291,12 +291,12 @@ function ChangeBet(id,amount){
 	UpdateBalance();
 }
 
-// 更新目前現金資產畫面
+// 更新目前現金資產畫面 餘額及下注總額
 function UpdateBalance(){
 	var e=document.getElementById("balance");
-	e.innerHTML="Balance: "+balance.toFixed(2)+" ETH";
+	e.innerHTML="目前餘額:「 " + balance + " 」 ";
 	var tb=TotalBets();
-	if(tb>0)e.innerHTML+=" ("+(tb*CurrentTier).toFixed(2)+")";
+	if(tb>0)e.innerHTML+="本局下注總額 (" + (tb*CurrentTier) + ")";
 }
 
 // 開獎
@@ -307,33 +307,43 @@ function Place(){
 	
 	if(bet>balance){
 		var betdiv=document.getElementById("result");
-		betdiv.innerHTML="Insufficient balance!";
+		betdiv.innerHTML="餘額不足!!";
 		return;
 	}
 	
 	var result=Math.floor(Math.random()*37);
-	
+	console.log('本次開獎號碼 result === '+result)
 	var win=0;
-	if(bets[result]!=0)win+=bets[result]*36;
-	for(var i=37;i<bets.length;i++)if(bets[i]!=0)win+=bets[i]*sectormultipliers[i-37][result];
+	if(bets[result]!=0)win+=bets[result]*36; //如果壓中那個號碼是 36 倍的賠率
+	for(var i=37;i<bets.length;i++){ //從 bets 37 以上開始算的意思是，0~37 是獨立的數字以在上面的邏輯就以算好，這邊迴圈是計算組合型投注的賠率！
+		if(bets[i]!=0){
+			console.log('i=== '+i)
+			console.log('sectormultipliers[i-37][result] === '+sectormultipliers[i-37][result])
+			win+=bets[i]*sectormultipliers[i-37][result]; //計算陪率
+		}
+	}
 	
-	win*=CurrentTier;
-	win-=bet;
+	win*=CurrentTier; // 計算籌碼價值，目前都是 100 元
+	win-=bet; // 減掉投注額，就是贏回來的錢
 	
-	console.log("BET: "+bet+" WIN: "+win);
+	console.log("下注(bet): "+bet+" 返現(win): "+win);
 	
 	var betdiv=document.getElementById("result");
-	if(win>=bet)betdiv.innerHTML="Lucky number: "+result+" you won "+win.toFixed(2)+" ETH!";
-	else betdiv.innerHTML="Lucky number: "+result+" you lost "+win.toFixed(2)+" ETH!";
+	if(bet!=0){ // 不等於 0 才代表有下注，有下注才需要訊息！
+		if(win>=bet)betdiv.innerHTML="本局輪盤開出號碼: "+result+" you won " + win + " !!";
+		else betdiv.innerHTML="本局輪盤開出號碼: "+result+" you lost " + win + " !!";
+	}else{
+		betdiv.innerHTML="本局輪盤開出號碼: "+result+" !!";
+	}
+
 	
-	balance+=win;
+	balance+=win; //持有的錢加上贏來的錢
 	UpdateBalance();
 }
 
-var balance=1;
-
-var CurrentTier=0.01;
-
+var balance=10000; // 初始金額
+var CurrentTier=100; // 目前設定，每一個籌碼的價值為 100 元
+// 應該會有不同金額的籌碼設定，但目前沒用到 (ETH)
 var tiers=[
 	0.0001,
 	0.0002,
@@ -363,7 +373,7 @@ var hovering=0;
 // 計算下注在哪個區域使用的變數
 var bets=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 
-// 選擇多筆下注使用的記號
+// 每個位置的賠率, 二維陣列表
 var sectormultipliers=[
 	[0,0,0,3,0,0,3,0,0,3,0,0,3,0,0,3,0,0,3,0,0,3,0,0,3,0,0,3,0,0,3,0,0,3,0,0,3],//3rd column
 	[0,0,3,0,0,3,0,0,3,0,0,3,0,0,3,0,0,3,0,0,3,0,0,3,0,0,3,0,0,3,0,0,3,0,0,3,0],//2nd column
