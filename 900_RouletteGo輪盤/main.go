@@ -163,7 +163,7 @@ func main() {
 			randServiceHandler := rand_generator(37) // 0 ~ 36
 			result := <-randServiceHandler
 			message1 <- strconv.Itoa(result)
-			time.Sleep(time.Second * 20)
+			time.Sleep(time.Second * 20) // TODO: 目前設定為每 20 秒跑一次
 		}
 	}()
 

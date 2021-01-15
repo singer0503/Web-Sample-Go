@@ -26,10 +26,12 @@ var chatroom = document.getElementsByClassName("msger-chat")
 var text = document.getElementById("msg");
 var send = document.getElementById("send")
 
+// 用滑鼠點擊發送按鈕，需要呼叫送訊息方法
 send.onclick = function (e) {
     handleMessageEvent()
 }
 
+// 當在文字輸入欄位時，內容不為空按下 Enter 時發送訊息
 text.onkeydown = function (e) {
     if (e.keyCode === 13 && text.value !== "") {
         handleMessageEvent()
