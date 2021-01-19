@@ -13,3 +13,9 @@
 {"clientIP":"::1","dataLength":0,"hostname":"323-Maxhuang","latency":1,"level":"warning","method":"GET","msg":"::1 - 323-Maxhuang [2020/43/56:12:57:43 +0800] \"GET /favicon.ico\" 404 0 \"http://localhost:8888/api/v1/user\" \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36\" (1ms)","path":"/favicon.ico","referer":"http://localhost:8888/api/v1/user","statusCode":404,"time":"2020-12-05T12:57:43+08:00","userAgent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.198 Safari/537.36"}
 {"level":"info","msg":"[Server Mode = debug]","time":"2020-12-05T13:00:13+08:00"}
 {"level":"info","msg":"[API Gateway Start Running]","time":"2020-12-05T13:00:13+08:00"}
+{"level":"info","msg":"[Server Mode = debug]","time":"2021-01-19T17:55:30+08:00"}
+{"level":"error","msg":"[connect to database error dial tcp 127.0.0.1:3306: connect: connection refused]","time":"2021-01-19T17:55:30+08:00"}
+{"level":"info","msg":"[Server Mode = debug]","time":"2021-01-19T17:56:41+08:00"}
+{"level":"info","msg":"[API Gateway Start Running]","time":"2021-01-19T17:56:41+08:00"}
+{"level":"info","msg":"[Server Mode = debug]","time":"2021-01-19T18:11:51+08:00"}
+{"level":"info","msg":"[API Gateway Start Running]","time":"2021-01-19T18:11:51+08:00"}
