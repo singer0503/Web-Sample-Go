@@ -5,12 +5,12 @@ import (
 	"database/sql"
 	"fmt"
 
-	_ "github.com/go-sql-driver/mysql"
+	_ "github.com/model-sql-driver/mysql"
 )
 
 func main() {
 	fmt.Println("test")
-	// 這邊是連線字串, 要帶帳號, 密碼, 目標資料庫
+	// 這邊帶入 driver名稱, 連線字串, 帳號, 密碼, 目標資料庫
 	db, err := sql.Open("mysql", "root:1qaz!QAZ@/test?charset=utf8")
 	checkErr(err)
 

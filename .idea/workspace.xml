@@ -26,10 +26,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7b67174d-3291-45b1-a99b-283472ebae68" name="Default Changelist" comment="加上 bet-script.js 相關註解">
-      <change afterPath="$PROJECT_DIR$/30_MySQL-sample-go/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/30_MySQL-sample-go/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/31_MySQL自我整合練習/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/900_RouletteGo輪盤/config/database.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/900_RouletteGo輪盤/domain/roulette.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/900_RouletteGo輪盤/model/model_error.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/900_RouletteGo輪盤/model/model_roulette_info.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/900_RouletteGo輪盤/roulette/delivery/http/roulette_handler.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/900_RouletteGo輪盤/roulette/repository/postgresql/postgresql.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/900_RouletteGo輪盤/roulette/usecase/roulette_usecase.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/11_UserManageAPI實作乾淨架構/log/user.log" beforeDir="false" afterPath="$PROJECT_DIR$/11_UserManageAPI實作乾淨架構/log/user.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/06-GinLoginSample/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/06-GinLoginSample/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/07-ConnDatabase/connMySQL.go" beforeDir="false" afterPath="$PROJECT_DIR$/07-ConnDatabase/connMySQL.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/09-envSample/config/app.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/09-envSample/config/app.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/101_Random/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/101_Random/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/11_UserManageAPI實作乾淨架構/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/11_UserManageAPI實作乾淨架構/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/21_RedisSample/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/21_RedisSample/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/22_WebSocket+Redis一對一聊天室/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/22_WebSocket+Redis一對一聊天室/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/23_UniTest/cal/cal_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/23_UniTest/cal/cal_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/30_MySQL-sample-go/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/30_MySQL-sample-go/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/900_RouletteGo輪盤/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/900_RouletteGo輪盤/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/900_RouletteGo輪盤/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/900_RouletteGo輪盤/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/900_RouletteGo輪盤/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/900_RouletteGo輪盤/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +58,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Go Application" />
+        <option value="Go File" />
       </list>
     </option>
   </component>
@@ -59,27 +78,28 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="DefaultGoTemplateProperty" value="Go Application" />
+    <property name="DefaultGoTemplateProperty" value="Go File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/900_RouletteGo輪盤/template/assets/css" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/900_RouletteGo輪盤/config" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Go" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/900_RouletteGo輪盤/config" />
       <recent name="$PROJECT_DIR$/900_RouletteGo輪盤/template/assets/css" />
       <recent name="$PROJECT_DIR$/900_RouletteGo輪盤/template/assets/js" />
       <recent name="$PROJECT_DIR$/900_RouletteGo輪盤/template/assets/images" />
       <recent name="$PROJECT_DIR$/103_bet_plate前端參考範例" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Build.go build main.go (1)">
+  <component name="RunManager" selected="Go Build.go build main.go">
     <configuration name="Unnamed" type="GoAppEngineRunConfiguration" factoryName="Go App Engine" nameIsGenerated="true">
       <module name="web-sample-go" />
       <working_directory value="$PROJECT_DIR$" />
@@ -139,9 +159,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Build.go build main.go" />
         <item itemvalue="Go Build.go build main.go (1)" />
         <item itemvalue="Go Build.go build sample_api" />
-        <item itemvalue="Go Build.go build main.go" />
         <item itemvalue="Go Build.go build WebSocketRedisSample" />
         <item itemvalue="Go Build.go build ginJWT" />
       </list>
@@ -233,7 +253,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610333513274</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="增加操作 MySQL 的練習">
+      <created>1611068101540</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1611068101540</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -274,7 +301,8 @@
     <MESSAGE value="畫面調整以及說明調整，下注盤的右半部尚未調整好" />
     <MESSAGE value="加上註解" />
     <MESSAGE value="加上 bet-script.js 相關註解" />
-    <option name="LAST_COMMIT_MESSAGE" value="加上 bet-script.js 相關註解" />
+    <MESSAGE value="增加操作 MySQL 的練習" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加操作 MySQL 的練習" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -288,9 +316,10 @@
       <screen x="0" y="23" width="1680" height="983" />
     </state>
     <state x="337" y="344" key="#Template_Data_Languages/0.23.1680.983@0.23.1680.983" timestamp="1608863480004" />
-    <state x="304" y="176" width="1071" height="716" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1608718005083">
+    <state x="304" y="176" width="1071" height="716" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1611472900268">
       <screen x="0" y="23" width="1680" height="983" />
     </state>
+    <state x="304" y="176" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1920.23.1920.1057/0.23.1680.983@0.23.1680.983" timestamp="1611472900268" />
     <state x="304" y="176" width="1071" height="716" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1680.983@0.23.1680.983" timestamp="1608718005083" />
     <state x="627" y="246" key="#com.intellij.ide.macro.MacrosDialog" timestamp="1608717866029">
       <screen x="0" y="23" width="1680" height="983" />
@@ -304,53 +333,69 @@
       <screen x="0" y="23" width="1680" height="983" />
     </state>
     <state x="879" y="380" key="EnvironmentVariablesDialog/-1920.23.1920.1057/0.23.1680.983@0.23.1680.983" timestamp="1607958889829" />
-    <state width="1638" height="134" key="GridCell.Tab.0.bottom" timestamp="1611052896203">
+    <state width="1638" height="308" key="GridCell.Tab.0.bottom" timestamp="1611484429914">
       <screen x="0" y="23" width="1680" height="983" />
     </state>
-    <state width="1638" height="166" key="GridCell.Tab.0.bottom/-1920.23.1920.1057/0.23.1680.983@0.23.1680.983" timestamp="1608739422067" />
-    <state width="1638" height="134" key="GridCell.Tab.0.bottom/0.23.1680.983@0.23.1680.983" timestamp="1611052896203" />
-    <state width="1638" height="134" key="GridCell.Tab.0.center" timestamp="1611052896202">
+    <state width="1638" height="308" key="GridCell.Tab.0.bottom/-1920.23.1920.1057/0.23.1680.983@0.23.1680.983" timestamp="1611484429914" />
+    <state width="1638" height="130" key="GridCell.Tab.0.bottom/0.23.1680.983@0.23.1680.983" timestamp="1611119569747" />
+    <state width="1638" height="308" key="GridCell.Tab.0.center" timestamp="1611484429912">
       <screen x="0" y="23" width="1680" height="983" />
     </state>
-    <state width="1638" height="166" key="GridCell.Tab.0.center/-1920.23.1920.1057/0.23.1680.983@0.23.1680.983" timestamp="1608739422067" />
-    <state width="1638" height="134" key="GridCell.Tab.0.center/0.23.1680.983@0.23.1680.983" timestamp="1611052896202" />
-    <state width="1638" height="134" key="GridCell.Tab.0.left" timestamp="1611052896201">
+    <state width="1638" height="308" key="GridCell.Tab.0.center/-1920.23.1920.1057/0.23.1680.983@0.23.1680.983" timestamp="1611484429912" />
+    <state width="1638" height="130" key="GridCell.Tab.0.center/0.23.1680.983@0.23.1680.983" timestamp="1611119569747" />
+    <state width="1638" height="308" key="GridCell.Tab.0.left" timestamp="1611484429912">
       <screen x="0" y="23" width="1680" height="983" />
     </state>
-    <state width="1638" height="166" key="GridCell.Tab.0.left/-1920.23.1920.1057/0.23.1680.983@0.23.1680.983" timestamp="1608739422066" />
-    <state width="1638" height="134" key="GridCell.Tab.0.left/0.23.1680.983@0.23.1680.983" timestamp="1611052896201" />
-    <state width="1638" height="134" key="GridCell.Tab.0.right" timestamp="1611052896202">
+    <state width="1638" height="308" key="GridCell.Tab.0.left/-1920.23.1920.1057/0.23.1680.983@0.23.1680.983" timestamp="1611484429912" />
+    <state width="1638" height="130" key="GridCell.Tab.0.left/0.23.1680.983@0.23.1680.983" timestamp="1611119569746" />
+    <state width="1638" height="308" key="GridCell.Tab.0.right" timestamp="1611484429913">
       <screen x="0" y="23" width="1680" height="983" />
     </state>
-    <state width="1638" height="166" key="GridCell.Tab.0.right/-1920.23.1920.1057/0.23.1680.983@0.23.1680.983" timestamp="1608739422067" />
-    <state width="1638" height="134" key="GridCell.Tab.0.right/0.23.1680.983@0.23.1680.983" timestamp="1611052896202" />
-    <state width="1638" height="328" key="GridCell.Tab.1.bottom" timestamp="1608720842451">
+    <state width="1638" height="308" key="GridCell.Tab.0.right/-1920.23.1920.1057/0.23.1680.983@0.23.1680.983" timestamp="1611484429913" />
+    <state width="1638" height="130" key="GridCell.Tab.0.right/0.23.1680.983@0.23.1680.983" timestamp="1611119569747" />
+    <state width="1638" height="130" key="GridCell.Tab.1.bottom" timestamp="1611119569748">
       <screen x="0" y="23" width="1680" height="983" />
     </state>
-    <state width="1638" height="328" key="GridCell.Tab.1.bottom/0.23.1680.983@0.23.1680.983" timestamp="1608720842451" />
-    <state width="1638" height="328" key="GridCell.Tab.1.center" timestamp="1608720842451">
+    <state width="1638" height="130" key="GridCell.Tab.1.bottom/0.23.1680.983@0.23.1680.983" timestamp="1611119569748" />
+    <state width="1638" height="130" key="GridCell.Tab.1.center" timestamp="1611119569748">
       <screen x="0" y="23" width="1680" height="983" />
     </state>
-    <state width="1638" height="328" key="GridCell.Tab.1.center/0.23.1680.983@0.23.1680.983" timestamp="1608720842451" />
-    <state width="1638" height="328" key="GridCell.Tab.1.left" timestamp="1608720842451">
+    <state width="1638" height="130" key="GridCell.Tab.1.center/0.23.1680.983@0.23.1680.983" timestamp="1611119569748" />
+    <state width="1638" height="130" key="GridCell.Tab.1.left" timestamp="1611119569748">
       <screen x="0" y="23" width="1680" height="983" />
     </state>
-    <state width="1638" height="328" key="GridCell.Tab.1.left/0.23.1680.983@0.23.1680.983" timestamp="1608720842451" />
-    <state width="1638" height="328" key="GridCell.Tab.1.right" timestamp="1608720842451">
+    <state width="1638" height="130" key="GridCell.Tab.1.left/0.23.1680.983@0.23.1680.983" timestamp="1611119569748" />
+    <state width="1638" height="130" key="GridCell.Tab.1.right" timestamp="1611119569748">
       <screen x="0" y="23" width="1680" height="983" />
     </state>
-    <state width="1638" height="328" key="GridCell.Tab.1.right/0.23.1680.983@0.23.1680.983" timestamp="1608720842451" />
-    <state x="533" y="150" key="SettingsEditor" timestamp="1610357689402">
+    <state width="1638" height="130" key="GridCell.Tab.1.right/0.23.1680.983@0.23.1680.983" timestamp="1611119569748" />
+    <state x="533" y="150" key="SettingsEditor" timestamp="1611471640511">
       <screen x="0" y="23" width="1680" height="983" />
     </state>
+    <state x="533" y="150" key="SettingsEditor/-1920.23.1920.1057/0.23.1680.983@0.23.1680.983" timestamp="1611471640511" />
     <state x="533" y="150" key="SettingsEditor/0.23.1680.983@0.23.1680.983" timestamp="1610357689402" />
-    <state x="440" y="254" key="Vcs.Push.Dialog.v2" timestamp="1610334108978">
+    <state x="440" y="254" key="Vcs.Push.Dialog.v2" timestamp="1611068105965">
       <screen x="0" y="23" width="1680" height="983" />
     </state>
-    <state x="440" y="254" key="Vcs.Push.Dialog.v2/0.23.1680.983@0.23.1680.983" timestamp="1610334108978" />
+    <state x="440" y="254" key="Vcs.Push.Dialog.v2/0.23.1680.983@0.23.1680.983" timestamp="1611068105964" />
     <state x="664" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1609738529133">
       <screen x="0" y="23" width="1680" height="983" />
     </state>
     <state x="664" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1680.983@0.23.1680.983" timestamp="1609738529133" />
+    <state x="570" y="433" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1611471933799">
+      <screen x="0" y="23" width="1680" height="983" />
+    </state>
+    <state x="570" y="433" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/-1920.23.1920.1057/0.23.1680.983@0.23.1680.983" timestamp="1611471933799" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/30_MySQL-sample-go/main.go</url>
+          <line>13</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

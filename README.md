@@ -21,7 +21,7 @@
 
 傳統需要去設定 GOPATH
 ```go
-GOPATH="/Users/Apple/Documents/Go/web-sample-go"
+GOPATH="/Users/Apple/Documents/Go/web-sample-model"
 ```
 # 但是自從 Go Modules 的誕生
 首先要先設定 GO111MODULE 環境變數，總共可以三種不同的值：

@@ -5,6 +5,9 @@
 package main
 
 import (
+	_rouletteHandlerHttpDelivery "RouletteGo/roulette/delivery/http"
+	_rouletteRepo "RouletteGo/roulette/repository/postgresql"
+	_rouletteUsecase "RouletteGo/roulette/usecase"
 	"context"
 	"encoding/json"
 	"fmt"
@@ -13,6 +16,9 @@ import (
 	"net/http"
 	"strconv"
 	"time"
+
+	sql "database/sql"
+	_ "github.com/lib/pq"
 
 	"github.com/gin-gonic/gin"
 	redis "github.com/go-redis/redis/v8"
@@ -47,6 +53,14 @@ func (m *Message) GetByteMessage() []byte {
 
 var redisClient *redis.Client
 
+const (
+	// Initialize connection constants.
+	HOST     = "localhost"
+	USER     = "postgres"
+	PASSWORD = "postgres"
+	DATABASE = "postgres"
+)
+
 func init() {
 	redisClient = redis.NewClient(&redis.Options{
 		Addr: "localhost:6379",
@@ -59,6 +73,7 @@ func init() {
 	} else {
 		log.Fatal("redis 無法連線，錯誤為", err)
 	}
+
 }
 
 func main() {
@@ -66,10 +81,6 @@ func main() {
 	server := gin.Default()
 	server.LoadHTMLGlob("template/html/*")
 	server.Static("/assets", "./template/assets")
-	server.GET("/test", func(c *gin.Context) {
-		result := "{'msg':'test ok!'}"
-		c.JSON(http.StatusOK, result)
-	})
 
 	server.GET("/", func(c *gin.Context) {
 		// 在http包使用的時候，註冊了/這個根路徑的模式處理，瀏覽器會自動的請求 favicon.ico，要注意處理，否則會出現兩次請求
@@ -198,8 +209,33 @@ func main() {
 	fmt.Println(err2)      // 是否有錯誤訊息
 	fmt.Println("===================")
 
+	// 處理 postgres sql 連線
+	// Initialize connection string.  sslmode=disable , sslmode=require
+	var connectionString string = fmt.Sprintf("host=%s user=%s password=%s dbname=%s sslmode=disable", HOST, USER, PASSWORD, DATABASE)
+
+	// 初始化連線
+	db, err := sql.Open("postgres", connectionString)
+	checkError(err)
+
+	err = db.Ping()
+	checkError(err)
+	fmt.Println("Successfully created connection to database")
+
+	// 建立 repository
+	fmt.Println("=================== Create repository Instance")
+	rouletteRepo := _rouletteRepo.NewPostgresqlRouletteRepository(db)
+	// 建立 usecase
+	rouletteUsecase := _rouletteUsecase.NewRouletteUsecase(rouletteRepo)
+	// 建立路由
+	_rouletteHandlerHttpDelivery.NewRouletteHandler(server, rouletteUsecase)
+
 	fmt.Println("http://localhost:8888")
 	server.Run(":8888")
+}
+func checkError(err error) {
+	if err != nil {
+		panic(err)
+	}
 }
 
 func AddToRoom1List(id string) error {

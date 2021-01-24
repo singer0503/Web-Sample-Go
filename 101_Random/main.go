@@ -34,7 +34,7 @@ func main() {
 	// 定义一个字符型的通道
 	// message := make(chan string)
 
-	// go func() {
+	// model func() {
 	// 	for i := 1; i <= 5; i++ {
 	// 		if i == 5 {
 	// 			message <- ""
@@ -68,7 +68,7 @@ func main() {
 	}()
 	// // 定義一個字串通道
 	// message2 := make(chan string)
-	// go func() {
+	// model func() {
 	// 	for {
 	// 		rand_service_handler := rand_generator(50)
 	// 		//fmt.Printf(" 1 -- this is a message : "+"%d\n", <-rand_service_handler)
@@ -78,7 +78,7 @@ func main() {
 	// 	}
 	// }()
 
-	// go func() {
+	// model func() {
 	// 	for {
 	// 		rand_service_handler := rand_generator(50)
 	// 		fmt.Printf(" 2 -- this is a message : "+"%d\n", <-rand_service_handler)

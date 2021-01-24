@@ -1,4 +1,4 @@
-//在套件中，測試程式碼必須是 _test.go 結尾
+//在套件中，測試程式碼必須是 _test.model 結尾
 package cal
 
 import (

@@ -6,7 +6,7 @@ import (
 	"database/sql"
 	"fmt"
 
-	_ "github.com/go-sql-driver/mysql" // 使用 mysql Driver, 使用 _ 可以去呼叫裡面的 init 方法進行初始化
+	_ "github.com/model-sql-driver/mysql" // 使用 mysql Driver, 使用 _ 可以去呼叫裡面的 init 方法進行初始化
 )
 
 const (
@@ -56,7 +56,6 @@ func QueryUser(db *sql.DB, username string) {
 		return
 	}
 	fmt.Println("查詢使用者成功", *user)
-
 }
 
 func main() {

@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"log"
 
-	redis "github.com/go-redis/redis/v8"
+	redis "github.com/model-redis/redis/v8"
 )
 
 func main() {

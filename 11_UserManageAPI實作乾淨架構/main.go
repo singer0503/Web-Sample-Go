@@ -40,8 +40,8 @@ func init() {
 }
 
 func main() {
-	// 建立 Repository
-	logger.Log.Debug("Create Repository Instance")
+	// 建立 repository
+	logger.Log.Debug("Create repository Instance")
 	var (
 		db       = orm.DatabaseORM.GetInstance()
 		userRepo = repository.NewUserRepository(db)

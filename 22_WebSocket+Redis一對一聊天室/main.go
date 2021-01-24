@@ -13,8 +13,8 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	redis "github.com/go-redis/redis/v8"
 	"github.com/google/uuid"
+	redis "github.com/model-redis/redis/v8"
 	melody "gopkg.in/olahol/melody.v1"
 )
 
