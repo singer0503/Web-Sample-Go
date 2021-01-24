@@ -1,4 +1,4 @@
-database:
+mySQLdatabase:
   url: '127.0.0.1'
   port: 3306
   name: 'demo'
@@ -11,3 +11,8 @@ database:
   maxLifeTime: 5
   logMode: true
   version: "0.0.1"
+postgreSQL:
+  host: 'localhost'
+  user: 'postgres'
+  password: 'postgres'
+  database: 'postgres'
