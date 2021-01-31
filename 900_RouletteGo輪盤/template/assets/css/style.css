@@ -54,7 +54,7 @@ body {
 }
 
 .bet-viewer{
-    display: flex;
+    /*display: flex;*/
     flex-flow: column wrap;
     justify-content: space-between;
     background-color: #f8dd1d;

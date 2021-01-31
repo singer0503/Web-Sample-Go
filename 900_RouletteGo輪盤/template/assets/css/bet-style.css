@@ -20,7 +20,7 @@ body.moving {
 .roulette table,
 tr {
   border-collapse: collapse;
-  /*border-spacing: 0;*/
+  border-spacing: 0;
 }
 
 .roulette td {
@@ -136,6 +136,7 @@ tr {
   position: absolute;
   cursor: pointer;
   z-index: 1;
+
 }
 
 /* zero */
@@ -169,19 +170,35 @@ tr {
   z-index: 0;
 }
 
+/*.roulette .controlls .ms4 {*/
+/*  width: 216px;*/
+/*  height: 50px;*/
+/*  margin-top: -7px;*/
+/*  margin-left: -10px;*/
+/*  z-index: 0;*/
+/*}*/
+
 .roulette .controlls .ms4 {
-  width: 216px;
+  width: 195px;
   height: 50px;
   margin-top: -7px;
-  margin-left: -10px;
+  margin-left: -34px;
   z-index: 0;
 }
 
+/*.roulette .controlls .ms2 {*/
+/*  width: 108px;*/
+/*  height: 50px;*/
+/*  margin-top: -7px;*/
+/*  margin-left: -10px;*/
+/*  z-index: 0;*/
+/*}*/
+
 .roulette .controlls .ms2 {
-  width: 108px;
+  width: 94px;
   height: 50px;
-  margin-top: -7px;
-  margin-left: -10px;
+  margin-top: -10px;
+  margin-left: -9px;
   z-index: 0;
 }
 
@@ -229,30 +246,37 @@ tr {
 
 .roulette .controlls .col1 .cm {
   left: 85px;
+  background-color: #61a0f8;
 }
 
 .roulette .controlls .col2 .cv {
-  left: 122px;
+  /*left: 122px;*/
+  left: 117px;
 }
 
 .roulette .controlls .col2 .cm {
-  left: 139px;
+  /*left: 139px;*/
+  left: 136px;
 }
 
 .roulette .controlls .col3 .cv {
-  left: 176px;
+  /*left: 176px;*/
+  left: 166px;
 }
 
 .roulette .controlls .col3 .cm {
-  left: 193px;
+  /*left: 193px;*/
+  left: 184px;
 }
 
 .roulette .controlls .col4 .cv {
-  left: 230px;
+  /*left: 230px;*/
+  left: 212px;
 }
 
 .roulette .controlls .col4 .cm {
-  left: 247px;
+  /*left: 247px;*/
+  left: 230px;
 }
 
 .roulette .controlls .col5 .cv {
@@ -260,19 +284,23 @@ tr {
 }
 
 .roulette .controlls .col5 .cm {
-  left: 301px;
+  /*left: 301px;*/
+  left: 280px;
 }
 
 .roulette .controlls .col6 .cv {
-  left: 338px;
+  /*left: 338px;*/
+  left: 308px;
 }
 
 .roulette .controlls .col6 .cm {
-  left: 355px;
+  /*left: 355px;*/
+  left: 326px;
 }
 
 .roulette .controlls .col7 .cv {
-  left: 392px;
+  /*left: 392px;*/
+  left: 3574px;
 }
 
 .roulette .controlls .col7 .cm {
@@ -280,47 +308,58 @@ tr {
 }
 
 .roulette .controlls .col8 .cv {
-  left: 446px;
+  /*left: 446px;*/
+  left: 406px;
 }
 
 .roulette .controlls .col8 .cm {
-  left: 463px;
+  /*left: 463px;*/
+  left: 423px;
 }
 
 .roulette .controlls .col9 .cv {
-  left: 500px;
+  /*left: 500px;*/
+  left: 455px;
 }
 
 .roulette .controlls .col9 .cm {
-  left: 517px;
+  /*left: 517px;*/
+  left: 471px;
 }
 
 .roulette .controlls .col10 .cv {
-  left: 554px;
+  /*left: 554px;*/
+  left: 503px;
 }
 
 .roulette .controlls .col10 .cm {
-  left: 571px;
+  /*left: 571px;*/
+  left: 519px;
 }
 
 .roulette .controlls .col11 .cv {
-  left: 608px;
+  /*left: 608px;*/
+  left: 550px;
 }
 
 .roulette .controlls .col11 .cm {
-  left: 625px;
+  /*left: 625px;*/
+  left: 567px;
 }
 
 .roulette .controlls .col12 .cv {
-  left: 662px;
+  /*left: 662px;*/
+  left: 599px;
 }
 
 .roulette .controlls .col12 .cm {
-  left: 679px;
+  /*left: 679px;*/
+  left: 615px;
 }
 
 .roulette .controlls .col13 .cm {
-  left: 733px;
+  /*left: 733px;*/
+  left: 665px;
 }
 
 /* others */

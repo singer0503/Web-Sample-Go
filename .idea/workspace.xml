@@ -27,11 +27,13 @@
   <component name="ChangeListManager">
     <list default="true" id="7b67174d-3291-45b1-a99b-283472ebae68" name="Default Changelist" comment="加上 bet-script.js 相關註解">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/900_RouletteGo輪盤/config/database.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/900_RouletteGo輪盤/config/database.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/900_RouletteGo輪盤/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/900_RouletteGo輪盤/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/900_RouletteGo輪盤/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/900_RouletteGo輪盤/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/900_RouletteGo輪盤/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/900_RouletteGo輪盤/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/900_RouletteGo輪盤/roulette/delivery/http/roulette_handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/900_RouletteGo輪盤/roulette/delivery/http/roulette_handler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/900_RouletteGo輪盤/template/assets/css/bet-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/900_RouletteGo輪盤/template/assets/css/bet-style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/900_RouletteGo輪盤/template/assets/css/roulette-style.css" beforeDir="false" afterPath="$PROJECT_DIR$/900_RouletteGo輪盤/template/assets/css/roulette-style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/900_RouletteGo輪盤/template/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/900_RouletteGo輪盤/template/assets/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/900_RouletteGo輪盤/template/assets/js/bet-script.js" beforeDir="false" afterPath="$PROJECT_DIR$/900_RouletteGo輪盤/template/assets/js/bet-script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/900_RouletteGo輪盤/template/html/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/900_RouletteGo輪盤/template/html/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -251,7 +253,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611488453041</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="把跟“輪盤”有關的路由以及邏輯擺放到正確位置">
+      <created>1611502807497</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1611502807497</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -294,7 +303,8 @@
     <MESSAGE value="加上 bet-script.js 相關註解" />
     <MESSAGE value="增加操作 MySQL 的練習" />
     <MESSAGE value="實作乾淨的架構，參考 Robert C. Martin 叔叔提出的 Clean Architecture" />
-    <option name="LAST_COMMIT_MESSAGE" value="實作乾淨的架構，參考 Robert C. Martin 叔叔提出的 Clean Architecture" />
+    <MESSAGE value="把跟“輪盤”有關的路由以及邏輯擺放到正確位置" />
+    <option name="LAST_COMMIT_MESSAGE" value="把跟“輪盤”有關的路由以及邏輯擺放到正確位置" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
@@ -325,52 +335,60 @@
       <screen x="0" y="23" width="1680" height="983" />
     </state>
     <state x="879" y="380" key="EnvironmentVariablesDialog/-1920.23.1920.1057/0.23.1680.983@0.23.1680.983" timestamp="1607958889829" />
-    <state width="1638" height="265" key="GridCell.Tab.0.bottom" timestamp="1611502506674">
+    <state width="1638" height="239" key="GridCell.Tab.0.bottom" timestamp="1612066003994">
       <screen x="0" y="23" width="1680" height="983" />
     </state>
-    <state width="1638" height="265" key="GridCell.Tab.0.bottom/-1920.23.1920.1057/0.23.1680.983@0.23.1680.983" timestamp="1611502506674" />
-    <state width="1638" height="130" key="GridCell.Tab.0.bottom/0.23.1680.983@0.23.1680.983" timestamp="1611119569747" />
-    <state width="1638" height="265" key="GridCell.Tab.0.center" timestamp="1611502506672">
+    <state width="1638" height="239" key="GridCell.Tab.0.bottom/-1920.23.1920.1057/0.23.1680.983@0.23.1680.983" timestamp="1612066003994" />
+    <state width="1638" height="239" key="GridCell.Tab.0.bottom/0.23.1680.983@0.23.1680.983" timestamp="1611917689923" />
+    <state width="1638" height="239" key="GridCell.Tab.0.center" timestamp="1612066003993">
       <screen x="0" y="23" width="1680" height="983" />
     </state>
-    <state width="1638" height="265" key="GridCell.Tab.0.center/-1920.23.1920.1057/0.23.1680.983@0.23.1680.983" timestamp="1611502506672" />
-    <state width="1638" height="130" key="GridCell.Tab.0.center/0.23.1680.983@0.23.1680.983" timestamp="1611119569747" />
-    <state width="1638" height="265" key="GridCell.Tab.0.left" timestamp="1611502506672">
+    <state width="1638" height="239" key="GridCell.Tab.0.center/-1920.23.1920.1057/0.23.1680.983@0.23.1680.983" timestamp="1612066003993" />
+    <state width="1638" height="239" key="GridCell.Tab.0.center/0.23.1680.983@0.23.1680.983" timestamp="1611917689923" />
+    <state width="1638" height="239" key="GridCell.Tab.0.left" timestamp="1612066003992">
       <screen x="0" y="23" width="1680" height="983" />
     </state>
-    <state width="1638" height="265" key="GridCell.Tab.0.left/-1920.23.1920.1057/0.23.1680.983@0.23.1680.983" timestamp="1611502506672" />
-    <state width="1638" height="130" key="GridCell.Tab.0.left/0.23.1680.983@0.23.1680.983" timestamp="1611119569746" />
-    <state width="1638" height="265" key="GridCell.Tab.0.right" timestamp="1611502506673">
+    <state width="1638" height="239" key="GridCell.Tab.0.left/-1920.23.1920.1057/0.23.1680.983@0.23.1680.983" timestamp="1612066003992" />
+    <state width="1638" height="239" key="GridCell.Tab.0.left/0.23.1680.983@0.23.1680.983" timestamp="1611917689922" />
+    <state width="1638" height="239" key="GridCell.Tab.0.right" timestamp="1612066003993">
       <screen x="0" y="23" width="1680" height="983" />
     </state>
-    <state width="1638" height="265" key="GridCell.Tab.0.right/-1920.23.1920.1057/0.23.1680.983@0.23.1680.983" timestamp="1611502506673" />
-    <state width="1638" height="130" key="GridCell.Tab.0.right/0.23.1680.983@0.23.1680.983" timestamp="1611119569747" />
-    <state width="1638" height="130" key="GridCell.Tab.1.bottom" timestamp="1611119569748">
+    <state width="1638" height="239" key="GridCell.Tab.0.right/-1920.23.1920.1057/0.23.1680.983@0.23.1680.983" timestamp="1612066003993" />
+    <state width="1638" height="239" key="GridCell.Tab.0.right/0.23.1680.983@0.23.1680.983" timestamp="1611917689923" />
+    <state width="1638" height="247" key="GridCell.Tab.1.bottom" timestamp="1611829873501">
       <screen x="0" y="23" width="1680" height="983" />
     </state>
-    <state width="1638" height="130" key="GridCell.Tab.1.bottom/0.23.1680.983@0.23.1680.983" timestamp="1611119569748" />
-    <state width="1638" height="130" key="GridCell.Tab.1.center" timestamp="1611119569748">
+    <state width="1638" height="247" key="GridCell.Tab.1.bottom/0.23.1680.983@0.23.1680.983" timestamp="1611829873501" />
+    <state width="1638" height="247" key="GridCell.Tab.1.center" timestamp="1611829873501">
       <screen x="0" y="23" width="1680" height="983" />
     </state>
-    <state width="1638" height="130" key="GridCell.Tab.1.center/0.23.1680.983@0.23.1680.983" timestamp="1611119569748" />
-    <state width="1638" height="130" key="GridCell.Tab.1.left" timestamp="1611119569748">
+    <state width="1638" height="247" key="GridCell.Tab.1.center/0.23.1680.983@0.23.1680.983" timestamp="1611829873501" />
+    <state width="1638" height="247" key="GridCell.Tab.1.left" timestamp="1611829873500">
       <screen x="0" y="23" width="1680" height="983" />
     </state>
-    <state width="1638" height="130" key="GridCell.Tab.1.left/0.23.1680.983@0.23.1680.983" timestamp="1611119569748" />
-    <state width="1638" height="130" key="GridCell.Tab.1.right" timestamp="1611119569748">
+    <state width="1638" height="247" key="GridCell.Tab.1.left/0.23.1680.983@0.23.1680.983" timestamp="1611829873500" />
+    <state width="1638" height="247" key="GridCell.Tab.1.right" timestamp="1611829873501">
       <screen x="0" y="23" width="1680" height="983" />
     </state>
-    <state width="1638" height="130" key="GridCell.Tab.1.right/0.23.1680.983@0.23.1680.983" timestamp="1611119569748" />
+    <state width="1638" height="247" key="GridCell.Tab.1.right/0.23.1680.983@0.23.1680.983" timestamp="1611829873501" />
+    <state x="619" y="242" key="RollbackChangesDialog" timestamp="1611913357620">
+      <screen x="0" y="23" width="1680" height="983" />
+    </state>
+    <state x="619" y="242" key="RollbackChangesDialog/0.23.1680.983@0.23.1680.983" timestamp="1611913357620" />
     <state x="533" y="150" key="SettingsEditor" timestamp="1611471640511">
       <screen x="0" y="23" width="1680" height="983" />
     </state>
     <state x="533" y="150" key="SettingsEditor/-1920.23.1920.1057/0.23.1680.983@0.23.1680.983" timestamp="1611471640511" />
     <state x="533" y="150" key="SettingsEditor/0.23.1680.983@0.23.1680.983" timestamp="1610357689402" />
-    <state x="440" y="254" key="Vcs.Push.Dialog.v2" timestamp="1611488463579">
+    <state x="440" y="254" key="Vcs.Push.Dialog.v2" timestamp="1611502811655">
       <screen x="0" y="23" width="1680" height="983" />
     </state>
-    <state x="440" y="254" key="Vcs.Push.Dialog.v2/-1920.23.1920.1057/0.23.1680.983@0.23.1680.983" timestamp="1611488463579" />
+    <state x="440" y="254" key="Vcs.Push.Dialog.v2/-1920.23.1920.1057/0.23.1680.983@0.23.1680.983" timestamp="1611502811655" />
     <state x="440" y="254" key="Vcs.Push.Dialog.v2/0.23.1680.983@0.23.1680.983" timestamp="1611068105964" />
+    <state width="840" height="491" key="XDebugger.FullValuePopup" timestamp="1611823994640">
+      <screen x="0" y="23" width="1680" height="983" />
+    </state>
+    <state width="840" height="491" key="XDebugger.FullValuePopup/0.23.1680.983@0.23.1680.983" timestamp="1611823994640" />
     <state x="664" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1609738529133">
       <screen x="0" y="23" width="1680" height="983" />
     </state>

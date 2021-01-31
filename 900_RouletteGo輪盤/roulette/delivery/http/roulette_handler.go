@@ -11,6 +11,7 @@ import (
 	"github.com/google/uuid"
 	"github.com/sirupsen/logrus"
 	"gopkg.in/olahol/melody.v1"
+	"log"
 	"math/rand"
 	"net/http"
 	"strconv"
@@ -23,6 +24,8 @@ type RouletteHandler struct {
 	WebSocket       *melody.Melody
 	RedisClient     *redis.Client
 }
+
+var CurrentTier = 100 // 目前設定，每一個籌碼的價值為 100 元
 
 // NewRouletteHandler ... 路由控制
 func NewRouletteHandler(server *gin.Engine, webSocket *melody.Melody, redisClient *redis.Client, rouletteUsecase domain.RouletteUsecase) {
@@ -40,9 +43,9 @@ func NewRouletteHandler(server *gin.Engine, webSocket *melody.Melody, redisClien
 	// 關閉 webSocket 處理
 	webSocket.HandleClose(handler.CloseConnect)
 
+	// 測試用的
 	server.GET("/test", handler.GetTest)
-
-	// TODO: GetRouletteByBetID ...這個方法目前沒有使用到 mvc 範例
+	// TODO: GetRouletteByBetID ...這個方法目前沒有使用到, 是一個 mvc 範例提供參考
 	server.GET("/api/v1/Roulette/:rouletteID", handler.GetRouletteByBetID)
 
 	//================================
@@ -80,6 +83,77 @@ func NewRouletteHandler(server *gin.Engine, webSocket *melody.Melody, redisClien
 		for item := range message1Return {
 			fmt.Println("開獎後計算賠率以及返現 : " + item)
 			// TODO: 抓取 redis 下注的人，計算賠率後回寫 redis 以及寫入資料庫
+			//獲取所有下注資料的 Redis hash 返回 map
+			hashGetAll, _ := handler.RedisClient.HGetAll(context.Background(), BETS_HASH_KEY).Result()
+			fmt.Println("HGetAll", hashGetAll)
+			var msg = []byte("")
+
+			//查看本局是否有人下注, 若有人下注才需要計算
+			if len(hashGetAll) > 0 {
+				handler.WebSocket.BroadcastFilter(msg, func(sessions *melody.Session) bool { // 線上有多少人就會跑幾次
+					userSessionID, _ := sessions.Get(KEY)
+					fmt.Println("====== s.Get(KEY)", userSessionID)
+					// 確認該 user 是否有下注紀錄
+					stringBet := hashGetAll[fmt.Sprintf("%v", userSessionID)]
+					if stringBet != "" {
+						fmt.Println("====我抓到這傢伙下注囉～", userSessionID)
+						fmt.Println("====他的注碼～", stringBet)
+						// 把字串轉換為 int陣列 Convert string to array of integers in golang
+						var bets []int
+						err := json.Unmarshal([]byte("["+stringBet+"]"), &bets)
+						if err != nil {
+							log.Fatal(err)
+						}
+						fmt.Printf("%v", bets)
+
+						//檢查下注總數
+						var bet = 0
+						for i := 0; i < len(bets); i++ {
+							if bets[i] != 0 {
+								bet += bets[i]
+							}
+
+						}
+						bet *= CurrentTier
+						fmt.Println("===bet ", bet)
+
+						//// TODO:檢查餘額
+
+						// 計算勝負
+						var win int = 0
+						result, _ := strconv.Atoi(item)
+						//如果壓中那個號碼是 36 倍的賠率
+						if bets[result] != 0 {
+							win += bets[result] * 36
+						}
+						//從 bets 37 以上開始算的意思是，0~36 是獨立的數字以在上面的邏輯就以算好，這邊迴圈是計算組合型投注的賠率！
+						for i := 37; i < len(bets); i++ {
+							if bets[i] != 0 {
+								fmt.Println("sectormultipliers[i-37][result] === ", sectormultipliers[i-37][result])
+								win += bets[i] * sectormultipliers[i-37][result] //計算陪率
+							}
+						}
+						win *= 100 // 計算籌碼價值，目前都是 100 元
+						win -= bet // 減掉投注額，就是贏回來的錢
+
+						fmt.Println("下注(bet): ", bet, " 正負(win): ", win)
+						returnBet := "[" + strconv.Itoa(bet) + "," + strconv.Itoa(win) + "]"
+						betMsg := NewMessage("betUpdate", "", returnBet).GetByteMessage()
+						//var oneSession melody.Session
+						var newSessions = make([]*melody.Session, 0)
+						newSessions = append(newSessions, sessions)
+						//strUserSessionID := fmt.Sprintf("%v", userSessionID)
+						//oneSession, _ := sessions.Get(strUserSessionID)
+						fmt.Println("計算跑了幾次", userSessionID)
+						handler.WebSocket.BroadcastMultiple(betMsg, newSessions)
+
+						//一率不回訊息
+						return false
+					}
+					// 沒有下注記錄則不需要發送訊息
+					return false
+				})
+			}
 		}
 	}()
 }
@@ -118,20 +192,30 @@ func (d *RouletteHandler) ReceiveMessage(s *melody.Session, msg []byte) {
 	json.Unmarshal(msg, &message)
 	fmt.Println("HandleMessage == " + string(msg))
 	// TODO: 這邊要使用 event 來判斷是訊息還是下注
-
 	// TODO: 若是下注則需要寫入 redis 做暫存
+	if message.Event == "bets" {
+		fmt.Println(message.Content)
+		fmt.Println("is bets message == " + fmt.Sprintf("%#v", message)) //直接把物件轉型成 string 並且列印
+		// 印出是哪個人下注
+		userSessionID, _ := s.Get(KEY)
+		fmt.Println("====== s.Get(KEY)", userSessionID)
+		// 將本局的下注資料儲存於 Redis
+		d.RedisClient.HSet(context.Background(), BETS_HASH_KEY, userSessionID, message.Content)
 
-	// TODO: 發送訊息邏輯
-	listString, _ := d.GetRoom1List()
-	d.WebSocket.BroadcastFilter(msg, func(session *melody.Session) bool {
-		compareID, _ := session.Get(KEY)
-		for _, value := range listString {
-			if value == compareID {
-				return true
+	} else if message.Event == "message" {
+		// TODO: 發送訊息邏輯
+		listString, _ := d.GetRoom1List()
+		d.WebSocket.BroadcastFilter(msg, func(sessions *melody.Session) bool {
+			compareID, _ := sessions.Get(KEY)
+			for _, value := range listString {
+				if value == compareID {
+					return true
+				}
 			}
-		}
-		return false
-	})
+			return false
+		})
+	}
+
 }
 
 func (d *RouletteHandler) CloseConnect(session *melody.Session, i int, s string) error {
@@ -181,9 +265,10 @@ func (d *RouletteHandler) GetRouletteByBetID(c *gin.Context) {
 }
 
 const (
-	KEY   = "chat_id"
-	WAIT  = "wait"
-	ROOM1 = "room1"
+	KEY           = "chat_id"
+	WAIT          = "wait"
+	ROOM1         = "room1"
+	BETS_HASH_KEY = "room1-bets"
 )
 
 type Message struct {
@@ -238,4 +323,20 @@ func rand_generator(n int) chan int {
 		}
 	}(n)
 	return out
+}
+
+// 每個組合型注碼位置的賠率, 二維陣列表
+var sectormultipliers = [12][37]int{
+	{0, 0, 0, 3, 0, 0, 3, 0, 0, 3, 0, 0, 3, 0, 0, 3, 0, 0, 3, 0, 0, 3, 0, 0, 3, 0, 0, 3, 0, 0, 3, 0, 0, 3, 0, 0, 3}, //3rd column
+	{0, 0, 3, 0, 0, 3, 0, 0, 3, 0, 0, 3, 0, 0, 3, 0, 0, 3, 0, 0, 3, 0, 0, 3, 0, 0, 3, 0, 0, 3, 0, 0, 3, 0, 0, 3, 0}, //2nd column
+	{0, 3, 0, 0, 3, 0, 0, 3, 0, 0, 3, 0, 0, 3, 0, 0, 3, 0, 0, 3, 0, 0, 3, 0, 0, 3, 0, 0, 3, 0, 0, 3, 0, 0, 3, 0, 0}, //1st column
+	{0, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, //1st 12
+	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, //2nd 12
+	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3}, //3rd 12
+	{0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, //1 to 18
+	{0, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2}, //even
+	{0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 0, 2, 0, 2, 0, 2, 0, 2, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 0, 2, 0, 2, 0, 2, 0, 2}, //Red
+	{0, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 2, 0, 2, 0, 2, 0, 2, 0, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 2, 0, 2, 0, 2, 0, 2, 0}, //Black
+	{0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0, 2, 0}, //odd
+	{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2}, //19 to 36
 }

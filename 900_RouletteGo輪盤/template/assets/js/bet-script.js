@@ -289,6 +289,15 @@ function ChangeBet(id,amount){
 	if(bets[id]<0)bets[id]=0;
 	UpdateBets();
 	UpdateBalance();
+
+	//TODO: 更新完畫面的元件後去通知 golang 端目前的下注狀態
+	// bets 記錄當前下注的狀態
+	console.log(bets);
+	ws.send(JSON.stringify({
+		"event": "bets",
+		"name": PERSON_NAME,
+		"content": bets.toString(),
+	}));
 }
 
 // 更新目前現金資產畫面 餘額及下注總額
@@ -317,7 +326,6 @@ function Place(){
 	if(bets[result]!=0)win+=bets[result]*36; //如果壓中那個號碼是 36 倍的賠率
 	for(var i=37;i<bets.length;i++){ //從 bets 37 以上開始算的意思是，0~37 是獨立的數字以在上面的邏輯就以算好，這邊迴圈是計算組合型投注的賠率！
 		if(bets[i]!=0){
-			console.log('i=== '+i)
 			console.log('sectormultipliers[i-37][result] === '+sectormultipliers[i-37][result])
 			win+=bets[i]*sectormultipliers[i-37][result]; //計算陪率
 		}
