@@ -309,7 +309,7 @@ function UpdateBalance(){
 }
 
 // 開獎
-function Place(){
+function Place(number){
 	var bet=0;
 	for(var i=0;i<bets.length;i++)if(bets[i]!=0)bet+=bets[i];
 	bet*=CurrentTier;
@@ -319,8 +319,15 @@ function Place(){
 		betdiv.innerHTML="餘額不足!!";
 		return;
 	}
-	
-	var result=Math.floor(Math.random()*37);
+	console.log(number)
+	var result
+	if(number == undefined){
+		result=Math.floor(Math.random()*37); // 開獎號碼
+	}else{
+		result = number
+	}
+
+
 	console.log('本次開獎號碼 result === '+result)
 	var win=0;
 	if(bets[result]!=0)win+=bets[result]*36; //如果壓中那個號碼是 36 倍的賠率
@@ -338,8 +345,8 @@ function Place(){
 	
 	var betdiv=document.getElementById("result");
 	if(bet!=0){ // 不等於 0 才代表有下注，有下注才需要訊息！
-		if(win>=bet)betdiv.innerHTML="本局輪盤開出號碼: "+result+" you won " + win + " !!";
-		else betdiv.innerHTML="本局輪盤開出號碼: "+result+" you lost " + win + " !!";
+		if(win>=bet)betdiv.innerHTML="本局輪盤開出號碼: "+result+"  ＋ " + win + " !!";
+		else betdiv.innerHTML="本局輪盤開出號碼: "+result+"  - " + win + " !!";
 	}else{
 		betdiv.innerHTML="本局輪盤開出號碼: "+result+" !!";
 	}

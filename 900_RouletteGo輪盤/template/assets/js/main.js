@@ -4,6 +4,7 @@ const RIGHT = "right";
 const EVENT_MESSAGE = "message"
 const EVENT_OTHER = "other"
 const EVENT_ROULETTE = "roulette"
+const BET_UPDATE = "betUpdate"
 
 const userPhotos = [
     "https://www.flaticon.com/svg/static/icons/svg/3408/3408584.svg",
@@ -63,6 +64,9 @@ ws.onmessage = function (e) {
             let randomNumber = parseInt(m.content)
             resetFunc()
             spinFunc(randomNumber)
+            break;
+        case BET_UPDATE:
+            console.log(m.content)
             break;
     }
     insertMsg(msg, chatroom[0]);
@@ -157,5 +161,7 @@ function spinFunc(randomNumber){
             $('.previous-list li').last().remove();
         }
 
+        //停球時去呼叫 bet-script.js 更新畫面注碼資料
+        Place(randomNumber)
     }, 9000);
 }
